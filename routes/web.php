@@ -5,7 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FrontendController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('fe.page.home');
 });
 
 // Route::get('/auth/redirect/{provider}', [AuthController::class, 'redirect'])->name('auth.redirect');

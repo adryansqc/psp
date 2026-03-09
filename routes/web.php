@@ -4,14 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FrontendController;
 
-Route::get('/', function () {
-    return view('fe.page.home');
-});
 
-
-Route::get('/about', function () {
-    return view('fe.page.about');
-});
+Route::get('/', [FrontendController::class, 'home'])->name('frontend.home');
+Route::get('/about', [FrontendController::class, 'about'])->name('frontend.about');
+Route::get('/project-details', [FrontendController::class, 'project'])->name('frontend.project');
+Route::get('/contact-us', [FrontendController::class, 'contact'])->name('frontend.contact');
 // Route::get('/auth/redirect/{provider}', [AuthController::class, 'redirect'])->name('auth.redirect');
 // Route::get('/auth/callback/{provider}', [AuthController::class, 'callback'])->name('auth.callback');
 // Route::get('/auth/create-password', [AuthController::class, 'create_password'])->name('auth.create-password');

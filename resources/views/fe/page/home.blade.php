@@ -424,13 +424,13 @@
             <div class="col-lg-6">
               <div class="item phone">
                 <img src="assets/images/phone-icon.png" alt="" style="max-width: 52px;">
-                <h6>0800-0200-0340<br><span>Phone Number</span></h6>
+                <h6>{{ $settingItems['phone_number']->value ?? 'No. Tlp' }}<br><span>Phone Number</span></h6>
               </div>
             </div>
             <div class="col-lg-6">
-              <div class="item email" style="display:flex; align-items:center; gap:15px;">
+              <div class="item email">
                 <img src="assets/images/email-icon.png" alt="" style="max-width:52px; flex-shrink:0;">
-                <h6 style="margin:0;">marketing@pspjmb.com<br><span>Business Email</span></h6>
+                <h6 style="margin:0;">{{ $settingItems['email']->value ?? 'Email Perusahaan' }}<br><span>Business Email</span></h6>
               </div>
             </div>
           </div>

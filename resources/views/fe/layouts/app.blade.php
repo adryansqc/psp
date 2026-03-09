@@ -6,9 +6,15 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {!! $settingItems['meta']->value ?? '' !!}
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <title>@yield('title') - Putra Sentosa Prakasa</title>
+    @if ($settingItems['favicon']->value && Storage::disk('public')->exists($settingItems['favicon']->value))
+        <link rel="shortcut icon" type="image/x-icon" href="{{ Storage::url($settingItems['favicon']->value) }}" rel="shortcut icon">
+    @else
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('dummypsp') }}/assets/images/Logo_psp.png">
+    @endif
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('dummypsp') }}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

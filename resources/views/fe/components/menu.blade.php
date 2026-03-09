@@ -10,10 +10,10 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="{{ url('/') }}" class="{{ Request::is('/') ? 'active' : '' }}">Home</a></li>
-                        <li><a href="{{ url('/about') }}" class="{{ Request::is('about') ? 'active' : '' }}">About</a></li>
-                        <li><a href="#" class="">Property</a></li>
-                        <li><a href="#" class="">Contact Us</a></li>
+                        <li><a href="{{ route('frontend.home') }}" class="{{ Request::routeIs('frontend.home') ? 'active' : '' }}">Home</a></li>
+                        <li><a href="{{ route('frontend.about') }}" class="{{ Request::routeIs('frontend.about') ? 'active' : '' }}">About</a></li>
+                        <li><a href="{{ route('frontend.project') }}" class="{{ Request::routeIs('frontend.project') ? 'active' : '' }}">Project</a></li>
+                        <li><a href="{{ route('frontend.contact') }}" class="{{ Request::routeIs('frontend.contact') ? 'active' : '' }}">Contact Us</a></li>
                         <li><a href="#" class="{{ Request::is('#') ? 'active' : '' }}"><i class="fa fa-calendar"></i> Contact Now</a></li>
                   </ul>
                     <a class='menu-trigger'>

@@ -8,6 +8,10 @@ Route::get('/', function () {
     return view('fe.page.home');
 });
 
+
+Route::get('/about', function () {
+    return view('fe.page.about');
+});
 // Route::get('/auth/redirect/{provider}', [AuthController::class, 'redirect'])->name('auth.redirect');
 // Route::get('/auth/callback/{provider}', [AuthController::class, 'callback'])->name('auth.callback');
 // Route::get('/auth/create-password', [AuthController::class, 'create_password'])->name('auth.create-password');

@@ -1,5 +1,9 @@
 @extends('fe.layouts.app')
 
+@section('title')
+    Home
+@endsection
+
 @push('style')
 
 @endpush
@@ -33,8 +37,8 @@
       <div class="row">
         <div class="col-lg-4">
           <div class="left-image">
-            <img src="assets/images/featured.jpg" alt="">
-            <a href="property-details.html"><img src="assets/images/featured-icon.png" alt="" style="max-width: 60px; padding: 0px;"></a>
+            <img src="{{ asset('dummypsp') }}/assets/images/featured.jpg" alt="">
+            <a href="property-details.html"><img src="{{ asset('dummypsp') }}/assets/images/featured-icon.png" alt="" style="max-width: 60px; padding: 0px;"></a>
           </div>
         </div>
         <div class="col-lg-5">
@@ -84,19 +88,19 @@
           <div class="info-table">
             <ul>
               <li>
-                <img src="assets/images/info-icon-01.png" alt="" style="max-width: 52px;">
+                <img src="{{ asset('dummypsp') }}/assets/images/info-icon-01.png" alt="" style="max-width: 52px;">
                 <h4>35 m2<br><span>Total Flat Space</span></h4>
               </li>
               <li>
-                <img src="assets/images/info-icon-02.png" alt="" style="max-width: 52px;">
+                <img src="{{ asset('dummypsp') }}/assets/images/info-icon-02.png" alt="" style="max-width: 52px;">
                 <h4>Contract<br><span>Contract Ready</span></h4>
               </li>
               <li>
-                <img src="assets/images/info-icon-03.png" alt="" style="max-width: 52px;">
+                <img src="{{ asset('dummypsp') }}/assets/images/info-icon-03.png" alt="" style="max-width: 52px;">
                 <h4>Payment<br><span>Payment Process</span></h4>
               </li>
               <li>
-                <img src="assets/images/info-icon-04.png" alt="" style="max-width: 52px;">
+                <img src="{{ asset('dummypsp') }}/assets/images/info-icon-04.png" alt="" style="max-width: 52px;">
                 <h4>Safety<br><span>24/7 Under Control</span></h4>
               </li>
             </ul>
@@ -124,7 +128,7 @@
       <div class="row">
         <div class="col-lg-10 offset-lg-1">
           <div class="video-frame">
-            <img src="assets/images/rumahkito.jpg" alt="">
+            <img src="{{ asset('dummypsp') }}/assets/images/rumahkito.jpg" alt="">
             <a href="https://www.youtube.com/watch?v=3imCL4Bk83c" target="_blank"><i class="fa fa-play"></i></a>
           </div>
         </div>
@@ -203,7 +207,7 @@
                       </div>
                     </div>
                     <div class="col-lg-6">
-                      <img src="assets/images/bestrumahkito.jpg" alt="">
+                      <img src="{{ asset('dummypsp') }}/assets/images/bestrumahkito.jpg" alt="">
                     </div>
                     <div class="col-lg-3">
                       <h4>Extra Info About Property</h4>
@@ -229,7 +233,7 @@
                       </div>
                     </div>
                     <div class="col-lg-6">
-                      <img src="assets/images/bestmansionkito.jpg" alt="">
+                      <img src="{{ asset('dummypsp') }}/assets/images/bestmansionkito.jpg" alt="">
                     </div>
                     <div class="col-lg-3">
                       <h4>Detail Info About Mansion Kito</h4>
@@ -254,7 +258,7 @@
                       </div>
                     </div>
                     <div class="col-lg-6">
-                      <img src="assets/images/bestpurimayang.jpg" alt="">
+                      <img src="{{ asset('dummypsp') }}/assets/images/bestpurimayang.jpg" alt="">
                     </div>
                     <div class="col-lg-3">
                       <h4>Extra Info About Penthouse</h4>
@@ -286,7 +290,7 @@
       <div class="row">
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/bestrumahkito.jpg" alt=""></a>
+            <a href="property-details.html"><img src="{{ asset('dummypsp') }}/assets/images/bestrumahkito.jpg" alt=""></a>
             <span class="category">Type Kamar</span>
             <h6>Rp,2.264.000</h6>
             <h4><a href="property-details.html">Rumah Kito Resort Hotel, NO 09</a></h4>
@@ -304,7 +308,7 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/bestrumahkito.jpg" alt=""></a>
+            <a href="property-details.html"><img src="{{ asset('dummypsp') }}/assets/images/bestrumahkito.jpg" alt=""></a>
             <span class="category">Type Rumah</span>
             <h6>$1.180.000</h6>
             <h4><a href="property-details.html">Mansion Kito Jambi, NO 009</a></h4>
@@ -322,7 +326,7 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/bestrumahkito.jpg" alt=""></a>
+            <a href="property-details.html"><img src="{{ asset('dummypsp') }}/assets/images/bestrumahkito.jpg" alt=""></a>
             <span class="category">Type Rumah</span>
             <h6>$1.460.000</h6>
             <h4><a href="property-details.html">Puri Mayang Jambi , NO 0009</a></h4>
@@ -340,7 +344,7 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/bestrumahkito.jpg" alt=""></a>
+            <a href="property-details.html"><img src="{{ asset('dummypsp') }}/assets/images/bestrumahkito.jpg" alt=""></a>
             <span class="category">Type Rumah</span>
             <h6>$584.500</h6>
             <h4><a href="property-details.html">The Green Jambi, NO 09</a></h4>
@@ -358,7 +362,7 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/bestrumahkito.jpg" alt=""></a>
+            <a href="property-details.html"><img src="{{ asset('dummypsp') }}/assets/images/bestrumahkito.jpg" alt=""></a>
             <span class="category">Type Rumah</span>
             <h6>$925.600</h6>
             <h4><a href="property-details.html">Royal Casablanca Jambi, NO 009</a></h4>
@@ -376,7 +380,7 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/bestrumahkito.jpg" alt=""></a>
+            <a href="property-details.html"><img src="{{ asset('dummypsp') }}/assets/images/bestrumahkito.jpg" alt=""></a>
             <span class="category">Type Rumah</span>
             <h6>$450.000</h6>
             <h4><a href="property-details.html">Grand Kenali Jambi, NO 0009</a></h4>

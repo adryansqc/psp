@@ -16,6 +16,7 @@ class SettingSeeder extends Seeder
         $settings = [
             'siteConfig' => Setting::updateOrCreate(['name' => 'Site Config']),
             'contact'    => Setting::updateOrCreate(['name' => 'Contact']),
+            'medsos'    => Setting::updateOrCreate(['name' => 'Medsos']),
         ];
 
         $settingItems = [
@@ -69,7 +70,7 @@ class SettingSeeder extends Seeder
                 'name'        => 'Address',
                 'key'         => 'address',
                 'type'        => 'text',
-                'value'       => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, voluptas!',
+                'value'       => 'Kompleks Puri Mayang, Jl. Serma Ishak Ahmad, Mayang Mangurai, Kec. Kota Baru, Kota Jambi, Jambi 36361',
                 'helper_text' => null,
             ],
             [
@@ -77,7 +78,7 @@ class SettingSeeder extends Seeder
                 'name'        => 'Email',
                 'key'         => 'email',
                 'type'        => 'email',
-                'value'       => 'example@email.com',
+                'value'       => 'marketing@pspjmb.com',
                 'helper_text' => null,
             ],
             [
@@ -94,6 +95,38 @@ class SettingSeeder extends Seeder
                 'key'         => 'gmaps',
                 'type'        => 'text',
                 'value'       => 'https://maps.app.goo.gl/4Xx9tTgC5TbSVgs47',
+                'helper_text' => null,
+            ],
+            [
+                'setting_id'  => $settings['medsos']->id,
+                'name'        => 'Instagram',
+                'key'         => 'instagram',
+                'type'        => 'text',
+                'value'       => 'https://instagram.com',
+                'helper_text' => null,
+            ],
+            [
+                'setting_id'  => $settings['medsos']->id,
+                'name'        => 'X',
+                'key'         => 'x',
+                'type'        => 'text',
+                'value'       => 'https://x.com/minthu',
+                'helper_text' => null,
+            ],
+            [
+                'setting_id'  => $settings['medsos']->id,
+                'name'        => 'Facebook',
+                'key'         => 'facebook',
+                'type'        => 'text',
+                'value'       => 'https://facebook.com',
+                'helper_text' => null,
+            ],
+            [
+                'setting_id'  => $settings['medsos']->id,
+                'name'        => 'Linkedin',
+                'key'         => 'linkedin',
+                'type'        => 'text',
+                'value'       => 'https://linkedind.com',
                 'helper_text' => null,
             ],
         ];

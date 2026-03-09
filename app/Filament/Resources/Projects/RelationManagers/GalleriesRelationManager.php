@@ -39,11 +39,13 @@ class GalleriesRelationManager extends RelationManager
                     ->label('Urutan')
                     ->numeric()
                     ->minValue(1)
-                    ->default(function () {
-                        return GalleriesProject::max('order') + 1;
+                    ->default(function ($get) {
+                        $projectId = $get('project_uuid');
+                        return GalleriesProject::where('project_uuid', $projectId)
+                            ->max('order') + 1;
                     })
                     ->required()
-                    ->columnSpanFull()
+                    ->columnSpanFull(),
             ]);
     }
 

@@ -25,8 +25,10 @@ class ProjectsTable
                 TextColumn::make('nama_projek')
                     ->searchable(),
                 TextColumn::make('informasi')
+                    ->limit(50)
                     ->searchable(),
                 TextColumn::make('fasilitas')
+                    ->limit(50)
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()

@@ -5,7 +5,20 @@
 @endsection
 
 @push('style')
+    <style>
+        .project-image {
+            display: block;
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+        }
 
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -282,121 +295,42 @@
       <div class="row">
         <div class="col-lg-4 offset-lg-4">
           <div class="section-heading text-center">
-            <h6>| Properties</h6>
-            <h2>We Provide The Best Property You Like</h2>
+            <h6>| Project</h6>
+            <h2>Our Project</h2>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-4 col-md-6">
-          <div class="item">
-            <a href="property-details.html"><img src="{{ asset('dummypsp') }}/assets/images/bestrumahkito.jpg" alt=""></a>
-            <span class="category">Type Kamar</span>
-            <h6>Rp,2.264.000</h6>
-            <h4><a href="property-details.html">Rumah Kito Resort Hotel, NO 09</a></h4>
-            <ul>
-              <li>Bedrooms: <span>9</span></li>
-              <li>Bathrooms: <span>9</span></li>
-              <li>Area: <span>999m2</span></li>
-              <li>Floor: <span>1</span></li>
-              <li>Parking: <span>9 spots</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="property-details.html">Reservasi Now</a>
-            </div>
-          </div>
+            @forelse ($projects as $project)
+                <div class="col-lg-4 col-md-6">
+                    <div class="item">
+                        <a href="{{ route('frontend.project', $project->uuid) }}" class="project-image">
+                            <img src="{{ asset('storage/' . $project->cover) }}" alt="">
+                        </a>
+
+                        <h4>
+                            <a href="{{ route('frontend.project', $project->uuid) }}">
+                                {{ $project->nama_projek }}
+                            </a>
+                        </h4>
+
+                        <ul>
+                            <span>{{ \Illuminate\Support\Str::limit($project->informasi, 100) }}</span>
+                        </ul>
+
+                        <div class="main-button">
+                            <a href="{{ route('frontend.project', $project->uuid) }}">Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+
+            @empty
+                <div class="col-lg-12 text-center py-5">
+                    <h5>Belum ada project</h5>
+                    <p>Project akan segera ditambahkan.</p>
+                </div>
+            @endforelse
         </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="item">
-            <a href="property-details.html"><img src="{{ asset('dummypsp') }}/assets/images/bestrumahkito.jpg" alt=""></a>
-            <span class="category">Type Rumah</span>
-            <h6>$1.180.000</h6>
-            <h4><a href="property-details.html">Mansion Kito Jambi, NO 009</a></h4>
-            <ul>
-              <li>Bedrooms: <span>9</span></li>
-              <li>Bathrooms: <span>9</span></li>
-              <li>Area: <span>999m2</span></li>
-              <li>Floor: <span>3</span></li>
-              <li>Parking: <span>8 spots</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="property-details.html">Reservasi Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="item">
-            <a href="property-details.html"><img src="{{ asset('dummypsp') }}/assets/images/bestrumahkito.jpg" alt=""></a>
-            <span class="category">Type Rumah</span>
-            <h6>$1.460.000</h6>
-            <h4><a href="property-details.html">Puri Mayang Jambi , NO 0009</a></h4>
-            <ul>
-              <li>Bedrooms: <span>9</span></li>
-              <li>Bathrooms: <span>9</span></li>
-              <li>Area: <span>999m2</span></li>
-              <li>Floor: <span>3</span></li>
-              <li>Parking: <span>10 spots</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="property-details.html">Reservasi Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="item">
-            <a href="property-details.html"><img src="{{ asset('dummypsp') }}/assets/images/bestrumahkito.jpg" alt=""></a>
-            <span class="category">Type Rumah</span>
-            <h6>$584.500</h6>
-            <h4><a href="property-details.html">The Green Jambi, NO 09</a></h4>
-            <ul>
-              <li>Bedrooms: <span>9</span></li>
-              <li>Bathrooms: <span>9</span></li>
-              <li>Area: <span>999m2</span></li>
-              <li>Floor: <span>25th</span></li>
-              <li>Parking: <span>2 cars</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="property-details.html">Reservasi Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="item">
-            <a href="property-details.html"><img src="{{ asset('dummypsp') }}/assets/images/bestrumahkito.jpg" alt=""></a>
-            <span class="category">Type Rumah</span>
-            <h6>$925.600</h6>
-            <h4><a href="property-details.html">Royal Casablanca Jambi, NO 009</a></h4>
-            <ul>
-              <li>Bedrooms: <span>9</span></li>
-              <li>Bathrooms: <span>9</span></li>
-              <li>Area: <span>999m2</span></li>
-              <li>Floor: <span>38th</span></li>
-              <li>Parking: <span>2 cars</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="property-details.html">Reservasi Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="item">
-            <a href="property-details.html"><img src="{{ asset('dummypsp') }}/assets/images/bestrumahkito.jpg" alt=""></a>
-            <span class="category">Type Rumah</span>
-            <h6>$450.000</h6>
-            <h4><a href="property-details.html">Grand Kenali Jambi, NO 0009</a></h4>
-            <ul>
-              <li>Bedrooms: <span>9</span></li>
-              <li>Bathrooms: <span>9</span></li>
-              <li>Area: <span>999m2</span></li>
-              <li>Floor: <span>26th</span></li>
-              <li>Parking: <span>3 cars</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="property-details.html">Schedule a visit</a>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 

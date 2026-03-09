@@ -31,6 +31,7 @@ class ProjectForm
                     ->required()
                     ->columnSpanFull(),
                 Textarea::make('lokasi')
+                    ->helperText('isilah lokasi dengan embed dari google maps dan width nya diubah menjadi 100%')
                     ->required()
                     ->columnSpanFull(),
             ]);

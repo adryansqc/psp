@@ -102,8 +102,8 @@
                 </div>
                 @endforeach
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            {{-- <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div> --}}
             <div style="padding-top: 50px;">
                 <div class="swiper-pagination"></div>
             </div>

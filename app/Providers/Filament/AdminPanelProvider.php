@@ -45,7 +45,7 @@ class AdminPanelProvider extends PanelProvider
             })
             ->favicon(function () {
                 $favicon = App::make('settingItems')['favicon']->value ?? null;
-                $faviconUrl = $favicon ? Storage::url($favicon) : asset('assets/images/favicon.png');
+                $faviconUrl = $favicon ? Storage::url($favicon) : asset('dummypsp/assets/images/Logo_psp.png');
                 return $faviconUrl;
             })
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')

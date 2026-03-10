@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('image_sliders', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->unique();
-            $table->string('cover')->nullable();
-            $table->string('nama_projek');
-            $table->text('informasi');
-            $table->text('fasilitas');
-            $table->text('lokasi');
+            $table->string('title');
+            $table->string('second_title')->nullable();
+            $table->string('gambar')->nullable();
+            $table->integer('order')->default(0);
+            $table->boolean('aktif')->default(1);
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('image_sliders');
     }
 };

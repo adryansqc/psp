@@ -82,7 +82,7 @@
                 <div class="swiper-slide">
                     <div class="project-slide">
 
-                        <img src="{{ asset('storage/'.$project->cover) }}" alt="">
+                        <img src="{{ $project->cover ? asset('storage/' . $project->cover) : asset('assets/images/image-thumbnail.jpg') }}" alt="">
 
                         <div class="project-content">
                             <h4>{{ $project->nama_projek }}</h4>

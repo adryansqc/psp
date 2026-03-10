@@ -30,7 +30,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="main-image">
-            <img src="{{ $project->cover ? asset('storage/' . $project->cover) : asset('assets/images/bestrumahkito.jpg') }}" alt="">
+            <img src="{{ $project->cover ? asset('storage/' . $project->cover) : asset('assets/images/image-thumbnail.jpg') }}" alt="">
           </div>
           <div class="main-content">
             <h4>INFORMASI</h4>

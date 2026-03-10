@@ -20,6 +20,7 @@ class ProjectsTable
                     ->imageHeight(40)
                     ->square()
                     ->disk('public')
+                    ->defaultImageUrl(asset('assets/images/image-thumbnail.jpg'))
                     ->visibility('public')
                     ->searchable(),
                 TextColumn::make('nama_projek')

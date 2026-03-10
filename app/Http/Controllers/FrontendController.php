@@ -17,6 +17,13 @@ class FrontendController extends Controller
     {
         return view('fe.page.about');
     }
+
+    public function allProject()
+    {
+        $projects = Project::latest()->get();
+
+        return view('fe.page.project', compact('projects'));
+    }
     public function project($uuid)
     {
         $project = Project::with('galleries')

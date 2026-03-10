@@ -61,6 +61,7 @@ https://templatemo.com/tm-591-villa-agency
   <script src="{{ asset('dummypsp') }}/assets/js/owl-carousel.js"></script>
   <script src="{{ asset('dummypsp') }}/assets/js/counter.js"></script>
   <script src="{{ asset('dummypsp') }}/assets/js/custom.js"></script>
+  @stack('script')
 
   </body>
 </html>

@@ -305,7 +305,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="item">
                         <a href="{{ route('frontend.project', $project->uuid) }}" class="project-image">
-                            <img src="{{ asset('storage/' . $project->cover) }}" alt="">
+                            <img src="{{ $project->cover ? asset('storage/' . $project->cover) : asset('assets/images/image-thumbnail.jpg') }}" alt="">
                         </a>
 
                         <h4>

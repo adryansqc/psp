@@ -11,18 +11,18 @@ class FrontendController extends Controller
     {
         $projects = Project::latest()->get();
 
-        return view('fe.page.home', compact('projects'));
+        return view('fe.page.beranda.home', compact('projects'));
     }
     public function about()
     {
-        return view('fe.page.about');
+        return view('fe.page.about.about');
     }
 
     public function allProject()
     {
         $projects = Project::latest()->get();
 
-        return view('fe.page.project', compact('projects'));
+        return view('fe.page.project.project', compact('projects'));
     }
     public function project($uuid)
     {
@@ -30,10 +30,10 @@ class FrontendController extends Controller
             ->where('uuid', $uuid)
             ->firstOrFail();
 
-        return view('fe.page.project-details', compact('project'));
+        return view('fe.page.project.project-details', compact('project'));
     }
     public function contact()
     {
-        return view('fe.page.contactus');
+        return view('fe.page.contactUs.contactus');
     }
 }

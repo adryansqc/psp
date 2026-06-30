@@ -48,17 +48,17 @@
 
      @php
          $logo = App::make('settingItems')['logo']->value ?? null;
-         $logoUrl = $logo ? Storage::url($logo) : asset('assets/images/image-thumbnail.jpg');
+         $logoUrl = $logo ? Storage::url($logo) : asset('dummypsp/assets/images/Logo_psp.png');
      @endphp
 
      <div class="text-center">
          <img src="{{ $logoUrl }}" alt="Logo" class="mx-auto h-20 rounded">
 
          <div class="mt-2">
-             <div class="text-2xl font-bold text-primary-600">
-                 {{ $settingItems['site_name']->value ?? 'Site Name' }}
-             </div>
-         </div>
+            <a href="{{ url('/') }}" class="text-2xl font-bold text-primary-600 hover:text-primary-700 transition-colors">
+                {{ $settingItems['site_name']->value ?? 'Site Name' }}
+            </a>
+        </div>
 
          <p class="mt-4 text-gray-500">
              Please log in using your registered email and password.

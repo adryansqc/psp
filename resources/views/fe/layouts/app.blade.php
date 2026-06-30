@@ -15,12 +15,7 @@
     @else
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('dummypsp') }}/assets/images/Logo_psp.png">
     @endif
-
-    <!-- Bootstrap core CSS -->
     <link href="{{ asset('dummypsp') }}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{ asset('dummypsp') }}/assets/css/fontawesome.css">
     <link rel="stylesheet" href="{{ asset('dummypsp') }}/assets/css/templatemo-villa-agency.css">
     <link rel="stylesheet" href="{{ asset('dummypsp') }}/assets/css/owl.css">
@@ -28,13 +23,6 @@
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
     @stack('style')
-<!--
-
-TemplateMo 591 villa agency
-
-https://templatemo.com/tm-591-villa-agency
-
--->
   </head>
 
 <body>

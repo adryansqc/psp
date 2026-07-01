@@ -19,6 +19,11 @@ class Project extends Model
         'informasi',
         'fasilitas',
         'lokasi',
+        'pin',
+    ];
+
+    protected $casts = [
+        'pin' => 'boolean',
     ];
 
     public function uniqueIds(): array

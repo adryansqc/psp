@@ -8,6 +8,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 
 class ProjectsTable
@@ -31,6 +32,11 @@ class ProjectsTable
                 TextColumn::make('fasilitas')
                     ->limit(50)
                     ->searchable(),
+                ToggleColumn::make('pin')
+                    ->label('Pin')
+                    ->onColor('success')
+                    ->offColor('danger')
+                    ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

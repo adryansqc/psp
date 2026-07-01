@@ -16,9 +16,10 @@ return new class extends Migration
             $table->uuid('uuid')->unique();
             $table->string('cover')->nullable();
             $table->string('nama_projek');
-            $table->text('informasi');
-            $table->text('fasilitas');
-            $table->text('lokasi');
+            $table->text('informasi')->nullable();
+            $table->text('fasilitas')->nullable();
+            $table->text('lokasi')->nullable();
+            $table->boolean('pin')->default(false);
             $table->timestamps();
         });
     }

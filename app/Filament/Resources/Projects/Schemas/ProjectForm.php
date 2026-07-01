@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Projects\Schemas;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
 class ProjectForm
@@ -33,6 +34,11 @@ class ProjectForm
                 Textarea::make('lokasi')
                     ->helperText('isilah lokasi dengan embed dari google maps dan width nya diubah menjadi 100%')
                     ->required()
+                    ->columnSpanFull(),
+                Toggle::make('pin')
+                    ->label('Pin Project')
+                    ->helperText('Aktifkan untuk menandai project ini sebagai pin pada halaman utama')
+                    ->default(false)
                     ->columnSpanFull(),
             ]);
     }

@@ -2,10 +2,12 @@
 
 namespace App\Filament\Resources\Projects\Tables;
 
+use App\Models\Project;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Notifications\Notification;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
@@ -36,7 +38,25 @@ class ProjectsTable
                     ->label('Pin')
                     ->onColor('success')
                     ->offColor('danger')
-                    ->sortable(),
+                    ->sortable()
+                    ->afterStateUpdated(function ($record, $state, $livewire) {
+                        if ($state) {
+                            $pinnedCount = Project::where('pin', true)
+                                ->where('uuid', '!=', $record->uuid)
+                                ->count();
+
+                            if ($pinnedCount >= 3) {
+                                $record->update(['pin' => false]);
+
+                                Notification::make()
+                                    ->title('Gagal Mengaktifkan Pin')
+                                    ->body('Maksimal hanya 3 project yang bisa di-pin.')
+                                    ->danger()
+                                    ->send();
+                                $livewire->dispatch('refresh');
+                            }
+                        }
+                    }),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -46,6 +66,7 @@ class ProjectsTable
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->poll('5s')
             ->filters([
                 //
             ])

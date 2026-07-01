@@ -3,46 +3,67 @@
 namespace App\Observers;
 
 use App\Models\Project;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectObserver
 {
-    /**
-     * Handle the Project "created" event.
-     */
-    public function created(Project $project): void
+    public function saving(Project $project)
     {
-        //
+        if ($project->pin && !$project->wasRecentlyCreated) {
+            $pinnedCount = Project::where('pin', true)
+                ->where('uuid', '!=', $project->uuid)
+                ->count();
+
+            if ($pinnedCount >= 3) {
+                $project->pin = false;
+                session()->flash('error', 'Maksimal hanya 3 project yang bisa di-pin.');
+                return false;
+            }
+        }
     }
 
-    /**
-     * Handle the Project "updated" event.
-     */
+    public function created(Project $project)
+    {
+        if ($project->pin) {
+            $pinnedCount = Project::where('pin', true)
+                ->where('uuid', '!=', $project->uuid)
+                ->count();
+
+            if ($pinnedCount > 3) {
+                $oldestPinned = Project::where('pin', true)
+                    ->where('uuid', '!=', $project->uuid)
+                    ->oldest()
+                    ->first();
+
+                if ($oldestPinned) {
+                    $oldestPinned->update(['pin' => false]);
+                }
+            }
+        }
+    }
+
     public function updated(Project $project): void
     {
-        //
+        if ($project->isDirty('cover')) {
+            $oldCover = $project->getOriginal('cover');
+            if ($oldCover && $oldCover !== $project->cover) {
+                if (Storage::disk('public')->exists($oldCover)) {
+                    Storage::disk('public')->delete($oldCover);
+                }
+            }
+        }
     }
 
-    /**
-     * Handle the Project "deleted" event.
-     */
     public function deleted(Project $project): void
     {
-        //
-    }
-
-    /**
-     * Handle the Project "restored" event.
-     */
-    public function restored(Project $project): void
-    {
-        //
-    }
-
-    /**
-     * Handle the Project "force deleted" event.
-     */
-    public function forceDeleted(Project $project): void
-    {
-        //
+        if ($project->cover && Storage::disk('public')->exists($project->cover)) {
+            Storage::disk('public')->delete($project->cover);
+        }
+        foreach ($project->galleries as $gallery) {
+            if ($gallery->image && Storage::disk('public')->exists($gallery->image)) {
+                Storage::disk('public')->delete($gallery->image);
+            }
+        }
     }
 }

@@ -9,9 +9,15 @@ class FrontendController extends Controller
 {
     public function home()
     {
-        $projects = Project::latest()->get();
+        $pinnedProjects = Project::where('pin', true)
+            ->latest()
+            ->take(3)
+            ->get();
+        if ($pinnedProjects->isEmpty()) {
+            $pinnedProjects = Project::latest()->take(3)->get();
+        }
 
-        return view('fe.page.beranda.home', compact('projects'));
+        return view('fe.page.beranda.home', compact('pinnedProjects'));
     }
     public function about()
     {

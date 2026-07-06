@@ -2,29 +2,27 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Ramsey\Uuid\Uuid;
 use Illuminate\Database\Eloquent\Model;
+use Ramsey\Uuid\Uuid;
 
-class Project extends Model
+class Faq extends Model
 {
     use HasFactory, HasUuids;
 
     protected $primaryKey = 'uuid';
 
     protected $fillable = [
-        'cover',
-        'nama_projek',
-        'informasi',
-        'fasilitas',
-        'lokasi',
-        'pin',
-        'developer',
+        'question',
+        'answer',
+        'order',
+        'is_active',
     ];
 
     protected $casts = [
-        'pin' => 'boolean',
+        'is_active' => 'boolean',
     ];
 
     public function uniqueIds(): array
@@ -37,8 +35,8 @@ class Project extends Model
         return (string) Uuid::uuid7();
     }
 
-    public function galleries()
+    public function scopeActive(Builder $query): Builder
     {
-        return $this->hasMany(GalleriesProject::class)->orderBy('order', 'asc');;
+        return $query->where('is_active', true)->orderBy('order');
     }
 }

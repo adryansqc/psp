@@ -15,9 +15,9 @@ class ProjectObserver
                 ->where('uuid', '!=', $project->uuid)
                 ->count();
 
-            if ($pinnedCount >= 3) {
+            if ($pinnedCount >= 5) {
                 $project->pin = false;
-                session()->flash('error', 'Maksimal hanya 3 project yang bisa di-pin.');
+                session()->flash('error', 'Maksimal hanya 5 project yang bisa di-pin.');
                 return false;
             }
         }
@@ -30,7 +30,7 @@ class ProjectObserver
                 ->where('uuid', '!=', $project->uuid)
                 ->count();
 
-            if ($pinnedCount > 3) {
+            if ($pinnedCount > 5) {
                 $oldestPinned = Project::where('pin', true)
                     ->where('uuid', '!=', $project->uuid)
                     ->oldest()

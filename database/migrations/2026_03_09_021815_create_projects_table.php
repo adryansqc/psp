@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('informasi')->nullable();
             $table->text('fasilitas')->nullable();
             $table->text('lokasi')->nullable();
+            $table->text('developer')->nullable();
             $table->boolean('pin')->default(false);
             $table->timestamps();
         });

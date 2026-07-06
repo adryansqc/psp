@@ -27,6 +27,13 @@ class ProjectForm
                 TextInput::make('nama_projek')
                     ->columnSpanFull()
                     ->required(),
+                TextInput::make('developer')
+                    ->label('Developer')
+                    ->placeholder('Masukkan nama developer')
+                    ->maxLength(255)
+                    ->required()
+                    ->columnSpanFull()
+                    ->helperText('Nama pengembang properti (contoh: Putra Sentosa Prakarsa)'),
                 Textarea::make('informasi')
                     ->required()
                     ->columnSpanFull(),
@@ -39,7 +46,7 @@ class ProjectForm
                     ->columnSpanFull(),
                 Toggle::make('pin')
                     ->label('Pin Project')
-                    ->helperText('Aktifkan untuk menandai project ini sebagai pin (Maksimal 3)')
+                    ->helperText('Aktifkan untuk menandai project ini sebagai pin (Maksimal 5)')
                     ->default(false)
                     ->rule(function (Get $get, $record) {
                         return function ($attribute, $value, $fail) use ($record) {
@@ -48,8 +55,8 @@ class ProjectForm
                                     ->when($record, fn($query) => $query->where('uuid', '!=', $record->uuid))
                                     ->count();
 
-                                if ($count >= 3) {
-                                    $fail('Maksimal hanya 3 project yang bisa di-pin.');
+                                if ($count >= 5) {
+                                    $fail('Maksimal hanya 5 project yang bisa di-pin.');
                                 }
                             }
                         };

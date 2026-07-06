@@ -21,6 +21,7 @@ class ProjectSeeder extends Seeder
                 'fasilitas' => 'Taman bermain, keamanan 24 jam, area parkir luas, musholla.',
                 'lokasi' => '<iframe src="https://www.google.com/maps?q=-2.3134208,102.7473408&z=15&output=embed" width="100%" height="450" style="border:0;" allowfullscreen loading="lazy"></iframe>',
                 'pin' => true,
+                'developer' => 'Putra Sentosa Prakarsa',
             ],
             [
                 'nama_projek' => 'Rumah Kito',
@@ -28,6 +29,7 @@ class ProjectSeeder extends Seeder
                 'fasilitas' => 'Kolam renang, clubhouse, jogging track, keamanan 24 jam.',
                 'lokasi' => '<iframe src="https://www.google.com/maps?q=-2.320000,102.750000&z=15&output=embed" width="100%" height="450" style="border:0;" allowfullscreen loading="lazy"></iframe>',
                 'pin' => false,
+                'developer' => 'Putra Sentosa Prakarsa',
             ],
             [
                 'nama_projek' => 'Puri Mayang',
@@ -35,6 +37,7 @@ class ProjectSeeder extends Seeder
                 'fasilitas' => 'Security 24 jam, taman hijau, area olahraga, tempat ibadah.',
                 'lokasi' => '<iframe src="https://www.google.com/maps?q=-2.305000,102.740000&z=15&output=embed" width="100%" height="450" style="border:0;" allowfullscreen loading="lazy"></iframe>',
                 'pin' => false,
+                'developer' => 'Putra Sentosa Prakarsa',
             ],
             [
                 'nama_projek' => 'Mansion Kito',
@@ -42,6 +45,7 @@ class ProjectSeeder extends Seeder
                 'fasilitas' => 'Security 24 jam, taman hijau, area olahraga, tempat ibadah.',
                 'lokasi' => '<iframe src="https://www.google.com/maps?q=-2.305000,102.740000&z=15&output=embed" width="100%" height="450" style="border:0;" allowfullscreen loading="lazy"></iframe>',
                 'pin' => true,
+                'developer' => 'Putra Sentosa Prakarsa',
             ],
         ];
 

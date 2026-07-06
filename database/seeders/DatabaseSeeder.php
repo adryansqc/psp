@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             SettingSeeder::class,
             RolePermissionSeeder::class,
             ProjectSeeder::class,
+            FaqSeeder::class,
         ];
 
         foreach ($seeders as $seeder) {

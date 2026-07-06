@@ -18,6 +18,10 @@
             height: 100%;
             object-fit: cover;
         }
+
+        .contact-content .item{
+            padding: 35px 20px !important;
+        }
     </style>
 @endpush
 
@@ -45,92 +49,39 @@
         </div>
     </div>
 
-    <div class="featured section">
+    <div class="featured section" style="padding: 80px 0; background: #f8f9fa;">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="left-image">
-                        <img src="{{ asset('dummypsp') }}/assets/images/featured.jpg" alt="">
-                        <a href="property-details.html"><img src="{{ asset('dummypsp') }}/assets/images/featured-icon.png"
-                                alt="" style="max-width: 60px; padding: 0px;"></a>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="about-image" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <img src="{{ asset('dummypsp') }}/assets/images/mansionkito.jpg"
+                             alt="Putra Sentosa Prakarsa"
+                             style="width: 100%; height: auto; display: block;">
                     </div>
                 </div>
-                <div class="col-lg-5">
-                    <div class="section-heading">
-                        <h6>| Featured</h6>
-                        <h2>Best Accommodation &amp; Best View</h2>
-                    </div>
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Best useful links ?
-                                </button>
+
+                <div class="col-lg-6">
+                    <div class="about-content" style="padding-left: 30px;">
+                        <div class="section-heading">
+                            <h6 style="color: #f35525; font-weight: 600; letter-spacing: 1px;">| Tentang Kami</h6>
+                            <h2 style="font-size: 36px; font-weight: 700; margin-top: 10px;">
+                                Putra Sentosa <br><span style="color: #f35525;">Prakarsa</span>
                             </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Get <strong>the best accommodation</strong> with seamless access to essential links from
-                                    Rumah Kito Jambi. </div>
+                            <p style="margin-top: 20px; margin-right: 10px; font-size: 16px; line-height: 1.9; color: #4a4a4a; text-align: justify;">
+                                PT. Putra Sentosa Prakarsa (PSP) merupakan pengembang real estat yang berfokus pada perumahan, perkantoran, ruko, real estate, dan area komersial lainnya. Konsep utama yang diemban adalah menciptakan tata ruang sebagai satu kesatuan dengan kawasan terpadu setempat, serta pola tata hijau dan asri — nyata tertuang pada Puri Mayang.
+                                <br><br>
+                                PSP berani menjadi pelopor perumahan Real Estate Resort pertama yang terbaik dan termewah di kawasan ini, melihat potensi Jambi yang ke depannya akan semakin baik. PSP dikenal sebagai pengembang besar dan terpercaya dengan keunggulan kualitas produk dan legalitas terjamin.
+                            </p>
+                            <div class="main-button" style="margin-top: 35px;">
+                                <a href="{{ route('frontend.about') }}"
+                                   style="display: inline-block; background: #ff0000; color: #fff; padding: 1px 35px;
+                                          border-radius: 25px; text-decoration: none; font-weight: 600;
+                                          transition: all 0.3s ease; letter-spacing: 0.5px;">
+                                    <i class="fa fa-arrow-right" style="margin-right: 8px;"></i>
+                                    Selengkapnya
+                                </a>
                             </div>
                         </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    How to order?
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Reserve your stay effortlessly through our official channels at Rumah Kito Jambi for a
-                                    seamless and refined experience.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Why is rumah kito the best ?
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Because it harmonizes elegant design, tranquil surroundings, and attentive hospitality
-                                    into a refined stay that exceeds expectations at every detail.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="info-table">
-                        <ul>
-                            <li>
-                                <img src="{{ asset('dummypsp') }}/assets/images/info-icon-01.png" alt=""
-                                    style="max-width: 52px;">
-                                <h4>35 m2<br><span>Total Flat Space</span></h4>
-                            </li>
-                            <li>
-                                <img src="{{ asset('dummypsp') }}/assets/images/info-icon-02.png" alt=""
-                                    style="max-width: 52px;">
-                                <h4>Contract<br><span>Contract Ready</span></h4>
-                            </li>
-                            <li>
-                                <img src="{{ asset('dummypsp') }}/assets/images/info-icon-03.png" alt=""
-                                    style="max-width: 52px;">
-                                <h4>Payment<br><span>Payment Process</span></h4>
-                            </li>
-                            <li>
-                                <img src="{{ asset('dummypsp') }}/assets/images/info-icon-04.png" alt=""
-                                    style="max-width: 52px;">
-                                <h4>Safety<br><span>24/7 Under Control</span></h4>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -163,44 +114,13 @@
         </div>
     </div>
 
-    <div class="fun-facts">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="wrapper">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="counter">
-                                    <h2 class="timer count-title count-number" data-to="999" data-speed="1000"></h2>
-                                    <p class="count-text ">Buildings<br>Finished Now</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="counter">
-                                    <h2 class="timer count-title count-number" data-to="999" data-speed="1000"></h2>
-                                    <p class="count-text ">Years<br>Experience</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="counter">
-                                    <h2 class="timer count-title count-number" data-to="999" data-speed="1000"></h2>
-                                    <p class="count-text ">Awwards<br>Won 2023</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="section best-deal">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
                     <div class="section-heading">
-                        <h6>| Best Deal</h6>
-                        <h2>Find Your Best Deal Right Now!</h2>
+                        <h6>| Featured Projects</h6>
+                        <h2>Featured Projects Putra Sentosa Prakarsa</h2>
                     </div>
                 </div>
                 <div class="col-lg-12">
@@ -245,9 +165,8 @@
                                                 @endif
                                             </div>
 
-                                            <!-- Informasi -->
                                             <div class="col-lg-3">
-                                                <h4>Extra Info About {{ $project->nama_projek }}</h4>
+                                                <h4>Informasi Tentang {{ $project->nama_projek }}</h4>
                                                 <p>{{ Str::limit($project->informasi, 200) }}</p>
                                                 <div class="icon-button">
                                                     <a href="{{ route('frontend.project', $project->uuid) }}">
@@ -263,51 +182,19 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="properties section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 offset-lg-4">
-                    <div class="section-heading text-center">
-                        <h6>| Project</h6>
-                        <h2>Our Project</h2>
-                    </div>
+            <div class="row mt-5">
+                <div class="col-lg-12 text-center">
+                    <a href="{{ route('frontend.allProject') }}"
+                        style="display: inline-block; background: #ff0000; color: #fff; padding: 10px 35px;
+                                border-radius: 25px; text-decoration: none; font-weight: 600;
+                                transition: all 0.3s ease; letter-spacing: 0.5px;">
+                                <i class="fa fa-th-list"></i>
+                        Lihat semua project
+                    </a>
                 </div>
             </div>
-            <div class="row">
-                @forelse ($pinnedProjects as $project)
-                    <div class="col-lg-4 col-md-6">
-                        <div class="item">
-                            <a href="{{ route('frontend.project', $project->uuid) }}" class="project-image">
-                                <img src="{{ $project->cover ? asset('storage/' . $project->cover) : asset('assets/images/image-thumbnail.jpg') }}"
-                                    alt="">
-                            </a>
 
-                            <h4>
-                                <a href="{{ route('frontend.project', $project->uuid) }}">
-                                    {{ $project->nama_projek }}
-                                </a>
-                            </h4>
-
-                            <ul>
-                                <span>{{ \Illuminate\Support\Str::limit($project->informasi, 100) }}</span>
-                            </ul>
-
-                            <div class="main-button">
-                                <a href="{{ route('frontend.project', $project->uuid) }}">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-
-                @empty
-                    <div class="col-lg-12 text-center py-5">
-                        <h5>Belum ada project</h5>
-                        <p>Project akan segera ditambahkan.</p>
-                    </div>
-                @endforelse
-            </div>
         </div>
     </div>
 
@@ -335,57 +222,45 @@
                             style="border:0; border-radius: 10px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);"
                             allowfullscreen=""></iframe>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="item phone">
-                                <h6>{{ $settingItems['phone_number']->value ?? 'No. Tlp' }}<br><span>Phone Number</span>
-                                </h6>
+
+                    <div class="cta-content mt-4">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="item email">
+                                            <h6 style="margin:0;">
+                                                {{ $settingItems['email']->value ?? 'Email Perusahaan' }}<br>
+                                                <span>Business Email</span>
+                                            </h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="item phone">
+                                            <h6>
+                                                {{ $settingItems['phone_number']->value ?? 'No. Tlp' }}<br>
+                                                <span>Phone Number</span>
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="item email">
-                                <h6 style="margin:0;">
-                                    {{ $settingItems['email']->value ?? 'Email Perusahaan' }}<br><span>Business
-                                        Email</span></h6>
+
+                            <div class="col-lg-6 text-lg-end text-center mt-3 mt-lg-0">
+                                <h4 class="fw-bold mb-3 mb-lg-0 d-inline-block mx-3">
+                                    Let's Find Your Ideal Property
+                                </h4>
+                                <a href="{{ route('frontend.contact') }}"
+                                    style="display: inline-block; background: #ff0000; color: #fff; padding: 10px 25px;
+                                            border-radius: 25px; text-decoration: none; font-weight: 600;
+                                            transition: all 0.3s ease; letter-spacing: 0.5px;">
+                                            <i class="fa fa-phone"></i>
+                                    Hubungi kami
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-lg-5">
-                                          <form id="contact-form" action="" method="post">
-                                            <div class="row">
-                                              <div class="col-lg-12">
-                                                <fieldset>
-                                                  <label for="name">Full Name</label>
-                                                  <input type="name" name="name" id="name" placeholder="Your Name..." autocomplete="on" required>
-                                                </fieldset>
-                                              </div>
-                                              <div class="col-lg-12">
-                                                <fieldset>
-                                                  <label for="email">Email Address</label>
-                                                  <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your E-mail..." required="">
-                                                </fieldset>
-                                              </div>
-                                              <div class="col-lg-12">
-                                                <fieldset>
-                                                  <label for="subject">Subject</label>
-                                                  <input type="subject" name="subject" id="subject" placeholder="Subject..." autocomplete="on" >
-                                                </fieldset>
-                                              </div>
-                                              <div class="col-lg-12">
-                                                <fieldset>
-                                                  <label for="message">Message</label>
-                                                  <textarea name="message" id="message" placeholder="Your Message"></textarea>
-                                                </fieldset>
-                                              </div>
-                                              <div class="col-lg-12">
-                                                <fieldset>
-                                                  <button type="submit" id="form-submit" class="orange-button">Send Message</button>
-                                                </fieldset>
-                                              </div>
-                                            </div>
-                                          </form>
-                                        </div> -->
             </div>
         </div>
     </div>

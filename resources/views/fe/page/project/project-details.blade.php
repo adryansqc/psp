@@ -18,7 +18,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <span class="breadcrumb"><a href="#">Home</a>  / Project</span>
+          <span class="breadcrumb"><a href="/">Home</a>  / Project</span>
           <h3>{{ $project->nama_projek }}</h3>
         </div>
       </div>
@@ -35,6 +35,11 @@
           <div class="main-content">
             <h4>INFORMASI</h4>
             <p>{{ $project->informasi }}</p>
+
+            @if($project->developer)
+            <h4>DEVELOPER</h4>
+            <p>{{ $project->developer }}</p>
+            @endif
           </div>
         </div>
       </div>
@@ -64,6 +69,9 @@
                   <li class="nav-item" role="presentation">
                     <button class="nav-link" id="penthouse-tab" data-bs-toggle="tab" data-bs-target="#penthouse" type="button" role="tab" aria-controls="penthouse" aria-selected="false">Galeri</button>
                   </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="video-tab" data-bs-toggle="tab" data-bs-target="#video" type="button" role="tab" aria-controls="video" aria-selected="false">Video</button>
+                  </li>
                 </ul>
               </div>
               <div class="tab-content" id="myTabContent">
@@ -83,11 +91,16 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="tab-pane fade" id="penthouse" role="tabpanel" aria-labelledby="penthouse-tab">
-                    @if($project->galleries->count())
+                    @php
+                        $galleryImages = $project->galleries->where('is_video', false)->values();
+                    @endphp
+
+                    @if($galleryImages->count())
                     <div id="projectGalleryCarousel" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
-                            @foreach ($project->galleries as $key => $gallery)
+                            @foreach ($galleryImages as $key => $gallery)
                                 <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
                                     <img
                                         src="{{ asset('storage/' . $gallery->gambar) }}"
@@ -108,6 +121,45 @@
                         <p>Belum ada gallery project.</p>
                     @endif
                 </div>
+
+                <div class="tab-pane fade" id="video" role="tabpanel" aria-labelledby="video-tab">
+                    @php
+                        $galleryVideos = $project->galleries->where('is_video', true)->values();
+                    @endphp
+
+                    @if($galleryVideos->count())
+                    <div id="projectVideoCarousel" class="carousel slide" data-bs-ride="false">
+                        <div class="carousel-inner">
+                            @foreach ($galleryVideos as $key => $gallery)
+                                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                    <div class="ratio ratio-16x9">
+                                        <iframe
+                                            src="{{ $gallery->embed_video_url }}"
+                                            class="rounded"
+                                            allow="autoplay"
+                                            allowfullscreen
+                                            style="border:0;">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+
+                        @if($galleryVideos->count() > 1)
+                        <button class="carousel-control-prev" type="button" data-bs-target="#projectVideoCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+
+                        <button class="carousel-control-next" type="button" data-bs-target="#projectVideoCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                        @endif
+                    </div>
+                    @else
+                        <p>Belum ada video project.</p>
+                    @endif
+                </div>
+
               </div>
             </div>
           </div>

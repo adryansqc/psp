@@ -13,8 +13,11 @@ use Filament\Actions\DissociateBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -27,14 +30,32 @@ class GalleriesRelationManager extends RelationManager
     {
         return $schema
             ->components([
+                Toggle::make('is_video')
+                    ->label('Video?')
+                    ->live()
+                    ->default(false)
+                    ->columnSpanFull(),
+
                 FileUpload::make('gambar')
+                    ->label('Gambar')
                     ->image()
                     ->imageEditor()
                     ->disk('public')
                     ->directory('galeri')
                     ->visibility('public')
                     ->columnSpanFull()
-                    ->required(),
+                    ->visible(fn(Get $get) => ! $get('is_video'))
+                    ->required(fn(Get $get) => ! $get('is_video')),
+
+                TextInput::make('video_url')
+                    ->label('Link Video (Google Drive / YouTube)')
+                    ->url()
+                    ->placeholder('https://drive.google.com/file/d/xxxxx/view?usp=sharing')
+                    ->helperText('Paste link share Google Drive (akses "Anyone with the link") atau link YouTube.')
+                    ->columnSpanFull()
+                    ->visible(fn(Get $get) => (bool) $get('is_video'))
+                    ->required(fn(Get $get) => (bool) $get('is_video')),
+
                 TextInput::make('order')
                     ->label('Urutan')
                     ->numeric()
@@ -56,11 +77,22 @@ class GalleriesRelationManager extends RelationManager
             ->reorderable('order')
             ->columns([
                 ImageColumn::make('gambar')
+                    ->label('Gambar')
                     ->imageHeight(40)
                     ->square()
+                    ->defaultImageUrl(asset('assets/images/image-thumbnail.jpg'))
                     ->disk('public')
                     ->visibility('public')
                     ->searchable(),
+                IconColumn::make('is_video')
+                    ->label('Video?')
+                    ->boolean(),
+                TextColumn::make('video_url')
+                    ->label('Link Video')
+                    ->limit(30)
+                    ->url(fn($record) => $record->video_url, shouldOpenInNewTab: true)
+                    ->placeholder('Bukan video')
+                    ->toggleable(),
                 TextColumn::make('order')
                     ->label('Urutan'),
                 TextColumn::make('created_at')

@@ -28,6 +28,11 @@ class ProjectsTable
                     ->searchable(),
                 TextColumn::make('nama_projek')
                     ->searchable(),
+                TextColumn::make('developer')
+                    ->searchable()
+                    ->sortable()
+                    ->badge()
+                    ->color('primary'),
                 TextColumn::make('informasi')
                     ->limit(50)
                     ->searchable(),
@@ -45,12 +50,12 @@ class ProjectsTable
                                 ->where('uuid', '!=', $record->uuid)
                                 ->count();
 
-                            if ($pinnedCount >= 3) {
+                            if ($pinnedCount >= 5) {
                                 $record->update(['pin' => false]);
 
                                 Notification::make()
                                     ->title('Gagal Mengaktifkan Pin')
-                                    ->body('Maksimal hanya 3 project yang bisa di-pin.')
+                                    ->body('Maksimal hanya 5 project yang bisa di-pin.')
                                     ->danger()
                                     ->send();
                                 $livewire->dispatch('refresh');

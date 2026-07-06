@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Faq;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -11,10 +12,10 @@ class FrontendController extends Controller
     {
         $pinnedProjects = Project::where('pin', true)
             ->latest()
-            ->take(3)
+            ->take(5)
             ->get();
         if ($pinnedProjects->isEmpty()) {
-            $pinnedProjects = Project::latest()->take(3)->get();
+            $pinnedProjects = Project::latest()->take(5)->get();
         }
 
         return view('fe.page.beranda.home', compact('pinnedProjects'));
@@ -40,6 +41,8 @@ class FrontendController extends Controller
     }
     public function contact()
     {
-        return view('fe.page.contactUs.contactus');
+        $faqs = Faq::active()->get();
+
+        return view('fe.page.contactUs.contactus', compact('faqs'));
     }
 }

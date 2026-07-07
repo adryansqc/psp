@@ -41,4 +41,31 @@ class Project extends Model
     {
         return $this->hasMany(GalleriesProject::class)->orderBy('order', 'asc');;
     }
+    public function getMapLatitudeAttribute(): ?float
+    {
+        $coords = $this->extractMapCoordinates();
+        return $coords['lat'] ?? null;
+    }
+
+    public function getMapLongitudeAttribute(): ?float
+    {
+        $coords = $this->extractMapCoordinates();
+        return $coords['lng'] ?? null;
+    }
+
+    protected function extractMapCoordinates(): ?array
+    {
+        if (! $this->lokasi) {
+            return null;
+        }
+
+        if (preg_match('/q=(-?\d+\.\d+),(-?\d+\.\d+)/', $this->lokasi, $matches)) {
+            return [
+                'lat' => (float) $matches[1],
+                'lng' => (float) $matches[2],
+            ];
+        }
+
+        return null;
+    }
 }

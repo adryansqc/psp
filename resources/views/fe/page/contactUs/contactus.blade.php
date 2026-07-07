@@ -25,13 +25,7 @@
                         <h6>| Office Location</h6>
                         <h2>Kunjungi Lokasi Kami</h2>
                     </div>
-                    <div id="map">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.176088111655!2d103.57523577472519!3d-1.6439675983407542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e2587c60edd0c1d%3A0xae7a9989ad67837a!2sRumah%20Kito%20Resort%20Hotel%20Jambi%20by%20Waringin%20Hospitality!5e0!3m2!1sen!2sid!4v1772089929278!5m2!1sen!2sid"
-                            width="100%" height="500px" frameborder="0"
-                            style="border:0; border-radius: 10px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);"
-                            allowfullscreen=""></iframe>
-                    </div>
+                    <x-leaflet-project-map :projects="$mapProjects" />
                 </div>
             </div>
 

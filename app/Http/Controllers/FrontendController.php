@@ -18,7 +18,9 @@ class FrontendController extends Controller
             $pinnedProjects = Project::latest()->take(5)->get();
         }
 
-        return view('fe.page.beranda.home', compact('pinnedProjects'));
+        $mapProjects = Project::whereNotNull('lokasi')->get();
+
+        return view('fe.page.beranda.home', compact('pinnedProjects', 'mapProjects'));
     }
     public function about()
     {
@@ -42,7 +44,8 @@ class FrontendController extends Controller
     public function contact()
     {
         $faqs = Faq::active()->get();
+        $mapProjects = Project::whereNotNull('lokasi')->get();
 
-        return view('fe.page.contactUs.contactus', compact('faqs'));
+        return view('fe.page.contactUs.contactus', compact('faqs', 'mapProjects'));
     }
 }

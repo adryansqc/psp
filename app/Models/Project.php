@@ -66,6 +66,13 @@ class Project extends Model
             ];
         }
 
+        if (preg_match('/!2d(-?\d+\.\d+)!3d(-?\d+\.\d+)/', $this->lokasi, $matches)) {
+            return [
+                'lat' => (float) $matches[2],
+                'lng' => (float) $matches[1],
+            ];
+        }
+
         return null;
     }
 }

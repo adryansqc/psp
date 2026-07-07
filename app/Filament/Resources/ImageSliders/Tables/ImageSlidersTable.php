@@ -1,28 +1,42 @@
 <?php
 
-namespace App\Filament\Resources\Faqs\Tables;
+namespace App\Filament\Resources\ImageSliders\Tables;
 
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 
-class FaqsTable
+class ImageSlidersTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('question')
-                    ->label('Pertanyaan')
-                    ->searchable()
-                    ->limit(50),
+                ImageColumn::make('gambar')
+                    ->label('Gambar')
+                    ->disk('public')
+                    ->defaultImageUrl(asset('assets/images/image-thumbnail.jpg'))
+                    ->imageHeight(40)
+                    ->square(),
 
-                ToggleColumn::make('is_active')
+                TextColumn::make('title')
+                    ->label('Judul')
+                    ->searchable()
+                    ->limit(40),
+
+                TextColumn::make('second_title')
+                    ->label('Sub Judul')
+                    ->limit(40)
+                    ->toggleable(),
+
+                ToggleColumn::make('aktif')
                     ->label('Aktif'),
 
                 TextColumn::make('order')
@@ -47,6 +61,7 @@ class FaqsTable
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
+                DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

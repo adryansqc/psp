@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Faq;
+use App\Models\ImageSlider;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -19,8 +20,9 @@ class FrontendController extends Controller
         }
 
         $mapProjects = Project::whereNotNull('lokasi')->get();
+        $sliders = ImageSlider::active()->get();
 
-        return view('fe.page.beranda.home', compact('pinnedProjects', 'mapProjects'));
+        return view('fe.page.beranda.home', compact('pinnedProjects', 'mapProjects', 'sliders'));
     }
     public function about()
     {

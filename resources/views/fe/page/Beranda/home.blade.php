@@ -28,24 +28,22 @@
 @section('content')
     <div class="main-banner">
         <div class="owl-carousel owl-banner">
-            <div class="item item-1">
-                <div class="header-text">
-                    <span class="category">Rumah Kito Resort, <em>Indonesia</em></span>
-                    <h2>Hurry!<br>Get the Best Villa for you</h2>
+            @forelse ($sliders as $slider)
+                <div class="item"
+                    style="background-image: url('{{ Storage::url($slider->gambar) }}');">
+                    <div class="header-text">
+                        <span class="category">{{ $slider->second_title }}</span>
+                        <h2>{!! nl2br(e($slider->title)) !!}</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="item item-2">
-                <div class="header-text">
-                    <span class="category">Mansion Kito, <em>Indonesia</em></span>
-                    <h2>Be Quick!<br>Get the best villa in town</h2>
+            @empty
+                <div class="item item-1">
+                    <div class="header-text">
+                        <span class="category">Rumah Kito Resort, Indonesia</span>
+                        <h2>Hurry!<br>Get the Best Villa for you</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="item item-3">
-                <div class="header-text">
-                    <span class="category">Puri Mayang, <em>Indonesia</span>
-                    <h2>Act Now!<br>Get the highest level penthouse</h2>
-                </div>
-            </div>
+            @endforelse
         </div>
     </div>
 
@@ -224,18 +222,25 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="item email">
-                                            <h6 style="margin:0;">
-                                                {{ $settingItems['email']->value ?? 'Email Perusahaan' }}<br>
-                                                <span>Business Email</span>
-                                            </h6>
+                                            <a href="mailto:{{ $settingItems['email']->value ?? 'email@perusahaan.com' }}"
+                                               style="text-decoration: none; color: inherit;">
+                                                <h6 style="margin:0;">
+                                                    {{ $settingItems['email']->value ?? 'Email Perusahaan' }}<br>
+                                                    <span>Business Email</span>
+                                                </h6>
+                                            </a>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="item phone">
-                                            <h6>
-                                                {{ $settingItems['phone_number']->value ?? 'No. Tlp' }}<br>
-                                                <span>Phone Number</span>
-                                            </h6>
+                                            <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $settingItems['phone_number']->value ?? '') }}"
+                                               target="_blank"
+                                               style="text-decoration: none; color: inherit;">
+                                                <h6>
+                                                    {{ $settingItems['phone_number']->value ?? 'No. Tlp' }}<br>
+                                                    <span>Phone Number</span>
+                                                </h6>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

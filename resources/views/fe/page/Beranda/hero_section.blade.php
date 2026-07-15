@@ -140,7 +140,9 @@
         overflow: hidden;
         cursor: pointer;
         opacity: 0.4;
-        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    border-color 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         border: 3px solid rgba(255,255,255,0.3);
         position: relative;
         flex-shrink: 0;
@@ -175,37 +177,42 @@
         transform: scale(1.1);
     }
 
-    .hero-thumb.expanding {
-        animation: expandToBackground 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        z-index: 100;
-    }
-
-    @keyframes expandToBackground {
-        0% {
-            transform: scale(1);
-            opacity: 1;
-            border-color: #fff;
-            border-radius: 12px;
-        }
-        50% {
-            transform: scale(2);
-            opacity: 0.8;
-            border-color: rgba(255,255,255,0.5);
-            border-radius: 8px;
-        }
-        100% {
-            transform: scale(1);
-            opacity: 0.4;
-            border-color: rgba(255,255,255,0.3);
-            border-radius: 12px;
-        }
+    .hero-thumb.is-launching {
+        opacity: 0;
+        pointer-events: none;
     }
 
     .hero-thumb .thumb-index {
         display: none;
     }
 
-    /* Sembunyikan navigation arrows */
+    .hero-expand-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 9999;
+        background-size: cover;
+        background-position: center;
+        border-radius: 12px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+        opacity: 1;
+        pointer-events: none;
+        transform-origin: 0 0;
+        will-change: transform, border-radius;
+    }
+
+    .hero-expand-overlay.is-expanding {
+        border-radius: 0;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+
+    .hero-expand-overlay.is-fading {
+        opacity: 0;
+        transition: opacity 0.4s ease !important;
+    }
+
     .owl-nav {
         display: none !important;
     }
@@ -329,7 +336,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const owlBanner = $('.owl-banner');
+        var owlBanner = $('.owl-banner');
 
         if (owlBanner.length > 0) {
             owlBanner.owlCarousel({
@@ -364,22 +371,79 @@
             var $this = $(this);
             var index = $this.data('index');
 
-            $this.addClass('expanding');
+            if ($this.hasClass('active')) {
+                return;
+            }
 
-            setTimeout(function() {
-                $this.removeClass('expanding');
-            }, 800);
+            var imgSrc = $this.find('img').attr('src');
+            var rect = this.getBoundingClientRect();
+            var vw = window.innerWidth;
+            var vh = window.innerHeight;
 
-            $('.hero-thumb').removeClass('active');
-            $this.addClass('active');
+            var scaleX = rect.width / vw;
+            var scaleY = rect.height / vh;
+            var translateX = rect.left;
+            var translateY = rect.top;
 
             var owl = $('.owl-banner').data('owl.carousel');
             if (owl && owl.settings.autoplay) {
                 owl.stop();
-                owl.play();
             }
 
-            $('.owl-banner').trigger('to.owl.carousel', [index, 800]);
+            var $overlay = $('<div class="hero-expand-overlay"></div>')
+                .css({
+                    backgroundImage: 'url("' + imgSrc + '")',
+                    transition: 'none',
+                    transform: 'translate(' + translateX + 'px, ' + translateY + 'px) scale(' + scaleX + ', ' + scaleY + ')'
+                })
+                .appendTo('body');
+
+            requestAnimationFrame(function() {
+                requestAnimationFrame(function() {
+                    $overlay.css({
+                        transition: 'transform 0.8s cubic-bezier(0.65, 0, 0.35, 1), border-radius 0.8s cubic-bezier(0.65, 0, 0.35, 1), box-shadow 0.8s cubic-bezier(0.65, 0, 0.35, 1)',
+                        transform: 'translate(0px, 0px) scale(1, 1)'
+                    }).addClass('is-expanding');
+                });
+            });
+
+            $('.hero-thumb').removeClass('active');
+            $this.addClass('active');
+
+            var switchedSlide = false;
+
+            function switchSlideBehindOverlay() {
+                if (switchedSlide) return;
+                switchedSlide = true;
+
+                $('.owl-banner').trigger('to.owl.carousel', [index, 300]);
+
+                var fadedOut = false;
+
+                function fadeOutOverlay() {
+                    if (fadedOut) return;
+                    fadedOut = true;
+                    $overlay.addClass('is-fading');
+                    setTimeout(function() {
+                        $overlay.remove();
+                        if (owl && owl.settings.autoplay) {
+                            owl.play();
+                        }
+                    }, 400);
+                }
+
+                $('.owl-banner').one('translated.owl.carousel', fadeOutOverlay);
+                setTimeout(fadeOutOverlay, 500);
+            }
+
+            $overlay.on('transitionend', function(e) {
+                if (e.originalEvent && e.originalEvent.propertyName && e.originalEvent.propertyName !== 'transform') {
+                    return;
+                }
+                switchSlideBehindOverlay();
+            });
+
+            setTimeout(switchSlideBehindOverlay, 850);
         });
 
         $('.owl-banner').on('translate.owl.carousel', function() {

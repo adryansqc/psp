@@ -6,93 +6,27 @@
 
 @push('style')
     <style>
-        .project-image {
-            display: block;
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
-        }
-
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .contact-content .item{
-            padding: 35px 20px !important;
+        .section {
+            margin-top: 0px !important;
         }
     </style>
+
+    <link href="{{ asset('css/aos/aos.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
-    <div class="main-banner">
-        <div class="owl-carousel owl-banner">
-            @forelse ($sliders as $slider)
-                <div class="item"
-                    style="background-image: url('{{ Storage::url($slider->gambar) }}');">
-                    <div class="header-text">
-                        <span class="category">{{ $slider->second_title }}</span>
-                        <h2>{!! nl2br(e($slider->title)) !!}</h2>
-                    </div>
-                </div>
-            @empty
-                <div class="item item-1">
-                    <div class="header-text">
-                        <span class="category">Rumah Kito Resort, Indonesia</span>
-                        <h2>Hurry!<br>Get the Best Villa for you</h2>
-                    </div>
-                </div>
-            @endforelse
-        </div>
-    </div>
 
-    <div class="featured section" style="padding: 80px 0; background: #f8f9fa;">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="about-image" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                        <img src="{{ asset('dummypsp') }}/assets/images/mansionkito.jpg"
-                             alt="Putra Sentosa Prakarsa"
-                             style="width: 100%; height: auto; display: block;">
-                    </div>
-                </div>
+    @include('fe.page.Beranda.hero_section')
 
-                <div class="col-lg-6">
-                    <div class="about-content" style="padding-left: 30px;">
-                        <div class="section-heading">
-                            <h6 style="color: #f35525; font-weight: 600; letter-spacing: 1px;">| Tentang Kami</h6>
-                            <h2 style="font-size: 36px; font-weight: 700; margin-top: 10px;">
-                                Putra Sentosa <br><span style="color: #f35525;">Prakarsa</span>
-                            </h2>
-                            <p style="margin-top: 20px; margin-right: 10px; font-size: 16px; line-height: 1.9; color: #4a4a4a; text-align: justify;">
-                                PT. Putra Sentosa Prakarsa (PSP) merupakan pengembang real estat yang berfokus pada perumahan, perkantoran, ruko, real estate, dan area komersial lainnya. Konsep utama yang diemban adalah menciptakan tata ruang sebagai satu kesatuan dengan kawasan terpadu setempat, serta pola tata hijau dan asri — nyata tertuang pada Puri Mayang.
-                                <br><br>
-                                PSP berani menjadi pelopor perumahan Real Estate Resort pertama yang terbaik dan termewah di kawasan ini, melihat potensi Jambi yang ke depannya akan semakin baik. PSP dikenal sebagai pengembang besar dan terpercaya dengan keunggulan kualitas produk dan legalitas terjamin.
-                            </p>
-                            <div class="main-button" style="margin-top: 35px;">
-                                <a href="{{ route('frontend.about') }}"
-                                   style="display: inline-block; background: #ff0000; color: #fff; padding: 1px 35px;
-                                          border-radius: 25px; text-decoration: none; font-weight: 600;
-                                          transition: all 0.3s ease; letter-spacing: 0.5px;">
-                                    <i class="fa fa-arrow-right" style="margin-right: 8px;"></i>
-                                    Selengkapnya
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('fe.page.Beranda.featured_section')
 
     <div class="video section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 offset-lg-4">
                     <div class="section-heading text-center">
-                        <h6>| Video View</h6>
-                        <h2>Get Closer View & Different Feeling</h2>
+                        <h6 data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">| Video View</h6>
+                        <h2 data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">Get Closer View & Different Feeling</h2>
                     </div>
                 </div>
             </div>
@@ -103,9 +37,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
-                    <div class="video-frame">
+                    <div class="video-frame" data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease-out-cubic" data-aos-offset="120">
                         <img src="{{ asset('dummypsp') }}/assets/images/rumahkito.jpg" alt="">
-                        <a href="https://www.youtube.com/watch?v=3imCL4Bk83c" target="_blank"><i class="fa fa-play"></i></a>
+                        <a href="https://www.youtube.com/watch?v=3imCL4Bk83c" target="_blank"
+                           data-aos="zoom-in" data-aos-delay="300" data-aos-duration="700" data-aos-easing="ease-out-cubic" data-aos-offset="120">
+                            <i class="fa fa-play"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -117,15 +54,16 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="section-heading">
-                        <h6>| Featured Projects</h6>
-                        <h2>Featured Projects Putra Sentosa Prakarsa</h2>
+                        <h6 data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">| Featured Projects</h6>
+                        <h2 data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">Featured Projects Putra Sentosa Prakarsa</h2>
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="tabs-content">
                         <div class="row">
                             <div class="nav-wrapper">
-                                <ul class="nav nav-tabs" role="tablist">
+                                <ul class="nav nav-tabs" role="tablist"
+                                    data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">
                                     @foreach ($pinnedProjects as $index => $project)
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link {{ $index === 0 ? 'active' : '' }}"
@@ -146,7 +84,8 @@
                                         aria-labelledby="tab-{{ $project->uuid }}">
                                         <div class="row">
                                             <div class="col-lg-3">
-                                                <div style="border-radius: 8px; overflow: hidden;">
+                                                <div style="border-radius: 8px; overflow: hidden;"
+                                                     data-aos="fade-right" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="120">
                                                     {!! $project->lokasi !!}
                                                 </div>
                                             </div>
@@ -155,18 +94,25 @@
                                                 @if ($project->cover)
                                                     <img src="{{ Storage::url($project->cover) }}"
                                                         alt="{{ $project->nama_projek }}"
-                                                        style="width: 100%; border-radius: 8px;">
+                                                        style="width: 100%; border-radius: 8px;"
+                                                        data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease-out-cubic" data-aos-offset="120">
                                                 @else
                                                     <img src="{{ asset('dummypsp/assets/images/bestrumahkito.jpg') }}"
                                                         alt="{{ $project->nama_projek }}"
-                                                        style="width: 100%; border-radius: 8px;">
+                                                        style="width: 100%; border-radius: 8px;"
+                                                        data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease-out-cubic" data-aos-offset="120">
                                                 @endif
                                             </div>
 
                                             <div class="col-lg-3">
-                                                <h4>Informasi Tentang {{ $project->nama_projek }}</h4>
-                                                <p>{{ Str::limit($project->informasi, 200) }}</p>
-                                                <div class="icon-button">
+                                                <h4 data-aos="fade-left" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">
+                                                    Informasi Tentang {{ $project->nama_projek }}
+                                                </h4>
+                                                <p data-aos="fade-left" data-aos-delay="150" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="120">
+                                                    {{ Str::limit($project->informasi, 200) }}
+                                                </p>
+                                                <div class="icon-button"
+                                                     data-aos="fade-left" data-aos-delay="300" data-aos-duration="700" data-aos-easing="ease-out-cubic" data-aos-offset="120">
                                                     <a href="{{ route('frontend.project', $project->uuid) }}">
                                                         <i class="fa fa-arrow-right"></i> Selengkapnya
                                                     </a>
@@ -186,7 +132,8 @@
                     <a href="{{ route('frontend.allProject') }}"
                         style="display: inline-block; background: #ff0000; color: #fff; padding: 10px 35px;
                                 border-radius: 25px; text-decoration: none; font-weight: 600;
-                                transition: all 0.3s ease; letter-spacing: 0.5px;">
+                                transition: all 0.3s ease; letter-spacing: 0.5px;"
+                        data-aos="zoom-in" data-aos-duration="700" data-aos-easing="ease-out-cubic" data-aos-offset="120">
                                 <i class="fa fa-th-list"></i>
                         Lihat semua project
                     </a>
@@ -201,8 +148,8 @@
             <div class="row">
                 <div class="col-lg-4 offset-lg-4">
                     <div class="section-heading text-center">
-                        <h6>| Contact Us</h6>
-                        <h2>Get In Touch With Our Agents</h2>
+                        <h6 data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">| Contact Us</h6>
+                        <h2 data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">Get In Touch With Our Agents</h2>
                     </div>
                 </div>
             </div>
@@ -214,14 +161,17 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <x-leaflet-project-map :projects="$mapProjects" />
+                    <div data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease-out-cubic" data-aos-offset="120">
+                        <x-leaflet-project-map :projects="$mapProjects" />
+                    </div>
 
                     <div class="cta-content mt-4">
                         <div class="row align-items-center">
                             <div class="col-lg-6">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <div class="item email">
+                                        <div class="item email"
+                                             data-aos="fade-right" data-aos-delay="100" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="120">
                                             <a href="mailto:{{ $settingItems['email']->value ?? 'email@perusahaan.com' }}"
                                                style="text-decoration: none; color: inherit;">
                                                 <h6 style="margin:0;">
@@ -232,7 +182,8 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
-                                        <div class="item phone">
+                                        <div class="item phone"
+                                             data-aos="fade-left" data-aos-delay="250" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="120">
                                             <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $settingItems['phone_number']->value ?? '') }}"
                                                target="_blank"
                                                style="text-decoration: none; color: inherit;">
@@ -247,13 +198,15 @@
                             </div>
 
                             <div class="col-lg-6 text-lg-end text-center mt-3 mt-lg-0">
-                                <h4 class="fw-bold mb-3 mb-lg-0 d-inline-block mx-3">
+                                <h4 class="fw-bold mb-3 mb-lg-0 d-inline-block mx-3"
+                                    data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">
                                     Let's Find Your Ideal Property
                                 </h4>
                                 <a href="{{ route('frontend.contact') }}"
                                     style="display: inline-block; background: #ff0000; color: #fff; padding: 10px 25px;
                                             border-radius: 25px; text-decoration: none; font-weight: 600;
-                                            transition: all 0.3s ease; letter-spacing: 0.5px;">
+                                            transition: all 0.3s ease; letter-spacing: 0.5px;"
+                                    data-aos="zoom-in" data-aos-delay="150" data-aos-duration="700" data-aos-easing="ease-out-cubic" data-aos-offset="120">
                                             <i class="fa fa-phone"></i>
                                     Hubungi kami
                                 </a>
@@ -265,3 +218,19 @@
         </div>
     </div>
 @endsection
+
+@push('script')
+    <script src="{{ asset('js/aos/aos.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init({
+                once: true,
+                duration: 1000,
+                easing: 'ease-out-cubic',
+                offset: 120,
+                mirror: false,
+                anchorPlacement: 'top-bottom'
+            });
+        });
+    </script>
+@endpush

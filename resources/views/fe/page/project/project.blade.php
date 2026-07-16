@@ -52,7 +52,6 @@
         text-decoration:none;
     }
 
-    /* Search Box */
     .project-search-wrapper{
         max-width:500px;
         margin:0 auto 20px auto;
@@ -90,8 +89,12 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <span class="breadcrumb"><a href="#">Home</a>  / Project</span>
-          <h3>Project {{ $settingItems['site_name']->value ?? 'Site Name' }}</h3>
+          <span class="breadcrumb" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">
+            <a href="#">Home</a>  / Project
+          </span>
+          <h3 data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">
+            Project {{ $settingItems['site_name']->value ?? 'Site Name' }}
+          </h3>
         </div>
       </div>
     </div>
@@ -100,12 +103,14 @@
 <div class="section best-deal project-slider">
     <div class="container">
 
-        <div class="project-search-wrapper">
+        <div class="project-search-wrapper"
+             data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">
             <input type="text" id="projectSearchInput" placeholder="Cari nama project...">
         </div>
 
         @if($projects->count())
-        <div class="swiper projectSwiper">
+        <div class="swiper projectSwiper"
+             data-aos="fade-up" data-aos-delay="150" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="120">
             <div class="swiper-wrapper" id="projectSwiperWrapper">
             </div>
             <div style="padding-top: 50px;">
@@ -119,7 +124,8 @@
         </div>
 
         @else
-            <div class="text-center">
+            <div class="text-center"
+                 data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">
                 <h4>Coming Soon</h4>
                 <p>Belum ada project yang ditampilkan disini</p>
             </div>
@@ -163,12 +169,19 @@ function renderSlides(data) {
         document.querySelector('.projectSwiper').style.display = 'block';
     }
 
-    data.forEach(function (project) {
+    data.forEach(function (project, index) {
         const slide = document.createElement('div');
         slide.classList.add('swiper-slide');
 
+        const delay = 100 + (Math.min(index, 4) * 120);
+
         slide.innerHTML = `
-            <div class="project-slide">
+            <div class="project-slide"
+                 data-aos="fade-up"
+                 data-aos-delay="${delay}"
+                 data-aos-duration="800"
+                 data-aos-easing="ease-out-cubic"
+                 data-aos-offset="80">
                 <img src="${project.cover}" alt="">
                 <div class="project-content">
                     <h4>${project.nama}</h4>
@@ -184,6 +197,10 @@ function renderSlides(data) {
 
         wrapper.appendChild(slide);
     });
+
+    if (window.AOS) {
+        AOS.refresh();
+    }
 }
 
 function initSwiper() {

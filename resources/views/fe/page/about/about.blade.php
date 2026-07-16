@@ -160,8 +160,12 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <span class="breadcrumb"><a href="#">Home</a> / About Us</span>
-          <h3>About Us</h3>
+          <span class="breadcrumb" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">
+            <a href="#">Home</a> / About Us
+          </span>
+          <h3 data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">
+            About Us
+          </h3>
         </div>
       </div>
     </div>
@@ -173,39 +177,43 @@
     <div class="row align-items-center">
 
       <div class="col-lg-6 mb-4">
-        <div class="about-image">
+        <div class="about-image"
+             data-aos="fade-right" data-aos-duration="1200" data-aos-easing="ease-out-cubic" data-aos-offset="120">
           <img src="{{ asset('dummypsp') }}/assets/images/bestrumahkito.jpg" alt="Tentang PSP">
         </div>
       </div>
 
       <div class="col-lg-6 mb-4 ps-lg-5">
-        <span class="section-label">Tentang Kami</span>
-        <div class="section-divider"></div>
-        <h2 class="section-heading">PT. Putra Sentosa Prakarsa</h2>
-        <p>
+        <span class="section-label" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">Tentang Kami</span>
+        <div class="section-divider" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600" data-aos-easing="ease-out-cubic" data-aos-offset="120"></div>
+        <h2 class="section-heading" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">PT. Putra Sentosa Prakarsa</h2>
+        <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">
           PT. Putra Sentosa Prakarsa (PSP) merupakan pengembang real estat yang berfokus pada
           perumahan, perkantoran, ruko, real estate, dan area komersial lainnya. Konsep utama yang
           diemban adalah menciptakan tata ruang sebagai satu kesatuan dengan kawasan terpadu
           setempat, serta pola tata hijau dan asri — nyata tertuang pada <strong>Puri Mayang</strong>.
         </p>
-        <p>
+        <p data-aos="fade-up" data-aos-delay="250" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">
           PSP berani menjadi pelopor perumahan Real Estate Resort pertama yang terbaik dan termewah
           di kawasan ini, melihat potensi Jambi yang ke depannya akan semakin baik. PSP dikenal
           sebagai pengembang besar dan terpercaya dengan keunggulan kualitas produk dan legalitas
           terjamin.
         </p>
-        <p>
+        <p data-aos="fade-up" data-aos-delay="300" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">
           PT. PSP telah menjalin kerja sama dengan berbagai bank pemerintah dan bank umum nasional
           untuk memberikan kemudahan pembiayaan bagi masyarakat dalam memiliki produk properti.
         </p>
 
-        <p style="font-size:14px;font-weight:600;color:#1d2130;margin-bottom:8px;">Fasilitas Kawasan:</p>
+        <p style="font-size:14px;font-weight:600;color:#1d2130;margin-bottom:8px;"
+           data-aos="fade-up" data-aos-delay="350" data-aos-duration="700" data-aos-easing="ease-out-cubic" data-aos-offset="120">
+            Fasilitas Kawasan:
+        </p>
         <ul class="facility-list">
-          <li><i class="fa fa-mosque"></i> Rumah Ibadah</li>
-          <li><i class="fa fa-tree"></i> Taman Bermain</li>
-          <li><i class="fa fa-running"></i> Sarana Olahraga</li>
-          <li><i class="fa fa-store"></i> Pasar Modern</li>
-          <li><i class="fa fa-shield-alt"></i> Security 24 Jam</li>
+          <li data-aos="fade-up" data-aos-delay="100" data-aos-duration="600" data-aos-easing="ease-out-cubic" data-aos-offset="120"><i class="fa fa-mosque"></i> Rumah Ibadah</li>
+          <li data-aos="fade-up" data-aos-delay="200" data-aos-duration="600" data-aos-easing="ease-out-cubic" data-aos-offset="120"><i class="fa fa-tree"></i> Taman Bermain</li>
+          <li data-aos="fade-up" data-aos-delay="300" data-aos-duration="600" data-aos-easing="ease-out-cubic" data-aos-offset="120"><i class="fa fa-running"></i> Sarana Olahraga</li>
+          <li data-aos="fade-up" data-aos-delay="400" data-aos-duration="600" data-aos-easing="ease-out-cubic" data-aos-offset="120"><i class="fa fa-store"></i> Pasar Modern</li>
+          <li data-aos="fade-up" data-aos-delay="500" data-aos-duration="600" data-aos-easing="ease-out-cubic" data-aos-offset="120"><i class="fa fa-shield-alt"></i> Security 24 Jam</li>
         </ul>
       </div>
 
@@ -218,14 +226,15 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-8 text-center mb-4">
-        <span class="section-label">Visi</span>
-        <div class="section-divider center"></div>
-        <h2 class="section-heading">Visi Kami</h2>
+        <span class="section-label" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">Visi</span>
+        <div class="section-divider center" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="600" data-aos-easing="ease-out-cubic" data-aos-offset="120"></div>
+        <h2 class="section-heading" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">Visi Kami</h2>
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-8">
-        <div class="vision-box">
+        <div class="vision-box"
+             data-aos="zoom-in" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="120">
           <p>
             "Terpercaya dan terdepan serta bersinergi untuk menyediakan properti dan/atau jasanya
             yang memberikan nilai tambah lebih bagi konsumen."
@@ -240,15 +249,16 @@
 <div class="values-section">
   <div class="container">
     <div class="text-center-label">
-      <span class="section-label">Core Values</span>
-      <div class="section-divider center"></div>
-      <h2 class="section-heading">Nilai-Nilai Kami</h2>
+      <span class="section-label" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">Core Values</span>
+      <div class="section-divider center" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="600" data-aos-easing="ease-out-cubic" data-aos-offset="120"></div>
+      <h2 class="section-heading" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">Nilai-Nilai Kami</h2>
     </div>
 
     <div class="row">
 
       <div class="col-lg-4 col-md-6">
-        <div class="value-card">
+        <div class="value-card"
+             data-aos="fade-up" data-aos-delay="100" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="120">
           <span class="value-number">01</span>
           <h5>Integritas</h5>
           <p>Lakukan apa yang sudah dikatakan.</p>
@@ -256,7 +266,8 @@
       </div>
 
       <div class="col-lg-4 col-md-6">
-        <div class="value-card">
+        <div class="value-card"
+             data-aos="fade-up" data-aos-delay="250" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="120">
           <span class="value-number">02</span>
           <h5>Proaktif</h5>
           <p>Bertanggung jawab terhadap masa lalu, sekarang & masa depan.</p>
@@ -264,7 +275,8 @@
       </div>
 
       <div class="col-lg-4 col-md-6">
-        <div class="value-card">
+        <div class="value-card"
+             data-aos="fade-up" data-aos-delay="400" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="120">
           <span class="value-number">03</span>
           <h5>Cepat Bertindak</h5>
           <p>Kalau bisa sekarang, kenapa nanti.</p>
@@ -272,7 +284,8 @@
       </div>
 
       <div class="col-lg-4 col-md-6">
-        <div class="value-card">
+        <div class="value-card"
+             data-aos="fade-up" data-aos-delay="550" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="120">
           <span class="value-number">04</span>
           <h5>Peningkatan Terus Menerus</h5>
           <p>Hari ini lebih baik dari kemarin, besok lebih baik dari hari ini.</p>
@@ -280,7 +293,8 @@
       </div>
 
       <div class="col-lg-4 col-md-6">
-        <div class="value-card">
+        <div class="value-card"
+             data-aos="fade-up" data-aos-delay="700" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="120">
           <span class="value-number">05</span>
           <h5>Sinergi</h5>
           <p>1 + 1 &gt; 2 — Bersama kita lebih kuat dan menghasilkan lebih banyak.</p>

@@ -10,12 +10,30 @@
             margin-top: 0px !important;
         }
     </style>
-
-    <link href="{{ asset('css/aos/aos.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
 
+    {{-- <div class="main-banner">
+        <div class="owl-carousel owl-banner">
+            @forelse ($sliders as $slider)
+                <div class="item"
+                    style="background-image: url('{{ Storage::url($slider->gambar) }}');">
+                    <div class="header-text">
+                        <span class="category">{{ $slider->second_title }}</span>
+                        <h2>{!! nl2br(e($slider->title)) !!}</h2>
+                    </div>
+                </div>
+            @empty
+                <div class="item item-1">
+                    <div class="header-text">
+                        <span class="category">Rumah Kito Resort, Indonesia</span>
+                        <h2>Hurry!<br>Get the Best Villa for you</h2>
+                    </div>
+                </div>
+            @endforelse
+        </div>
+    </div> --}}
     @include('fe.page.Beranda.hero_section')
 
     @include('fe.page.Beranda.featured_section')
@@ -218,19 +236,3 @@
         </div>
     </div>
 @endsection
-
-@push('script')
-    <script src="{{ asset('js/aos/aos.js') }}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            AOS.init({
-                once: true,
-                duration: 1000,
-                easing: 'ease-out-cubic',
-                offset: 120,
-                mirror: false,
-                anchorPlacement: 'top-bottom'
-            });
-        });
-    </script>
-@endpush

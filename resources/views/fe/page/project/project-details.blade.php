@@ -18,8 +18,12 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <span class="breadcrumb"><a href="/">Home</a>  / Project</span>
-          <h3>{{ $project->nama_projek }}</h3>
+          <span class="breadcrumb" data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">
+            <a href="/">Home</a>  / Project
+          </span>
+          <h3 data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">
+            {{ $project->nama_projek }}
+          </h3>
         </div>
       </div>
     </div>
@@ -29,16 +33,17 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <div class="main-image">
+          <div class="main-image"
+               data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease-out-cubic" data-aos-offset="120">
             <img src="{{ $project->cover ? asset('storage/' . $project->cover) : asset('assets/images/image-thumbnail.jpg') }}" alt="">
           </div>
           <div class="main-content">
-            <h4>INFORMASI</h4>
-            <p>{{ $project->informasi }}</p>
+            <h4 data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">INFORMASI</h4>
+            <p data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">{{ $project->informasi }}</p>
 
             @if($project->developer)
-            <h4>DEVELOPER</h4>
-            <p>{{ $project->developer }}</p>
+            <h4 data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">DEVELOPER</h4>
+            <p data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">{{ $project->developer }}</p>
             @endif
           </div>
         </div>
@@ -51,15 +56,16 @@
       <div class="row">
         <div class="col-lg-4">
           <div class="section-heading">
-            <h6>| Best Deal</h6>
-            <h2>{{ $project->nama_projek }}</h2>
+            <h6 data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">| Best Deal</h6>
+            <h2 data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">{{ $project->nama_projek }}</h2>
           </div>
         </div>
         <div class="col-lg-12">
           <div class="tabs-content">
             <div class="row">
-              <div class="nav-wrapper ">
-                <ul class="nav nav-tabs" role="tablist">
+              <div class="nav-wrapper "
+                   data-aos="fade-down" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="120">
+                <ul class="nav nav-tabs" role="tablist" id="projectDetailTabs">
                   <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="appartment-tab" data-bs-toggle="tab" data-bs-target="#appartment" type="button" role="tab" aria-controls="appartment" aria-selected="true">Fasilitas</button>
                   </li>
@@ -77,7 +83,8 @@
               <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="appartment" role="tabpanel" aria-labelledby="appartment-tab">
                   <div class="row">
-                    <div class="col-lg-12 info-table">
+                    <div class="col-lg-12 info-table"
+                         data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="80">
                       <h4>Fasilitas {{ $project->nama_projek }}</h4>
                       <p>{{ $project->fasilitas }}</p>
                     </div>
@@ -85,7 +92,8 @@
                 </div>
                 <div class="tab-pane fade" id="villa" role="tabpanel" aria-labelledby="villa-tab">
                   <div class="row">
-                    <div class="col-lg-12 info-table">
+                    <div class="col-lg-12 info-table"
+                         data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-out-cubic" data-aos-offset="80">
                       <h4>Lokasi {{ $project->nama_projek }}</h4>
                       <p>{!! $project->lokasi !!}</p>
                     </div>
@@ -98,7 +106,8 @@
                     @endphp
 
                     @if($galleryImages->count())
-                    <div id="projectGalleryCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div id="projectGalleryCarousel" class="carousel slide" data-bs-ride="carousel"
+                         data-aos="zoom-in" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="80">
                         <div class="carousel-inner">
                             @foreach ($galleryImages as $key => $gallery)
                                 <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
@@ -128,7 +137,8 @@
                     @endphp
 
                     @if($galleryVideos->count())
-                    <div id="projectVideoCarousel" class="carousel slide" data-bs-ride="false">
+                    <div id="projectVideoCarousel" class="carousel slide" data-bs-ride="false"
+                         data-aos="zoom-in" data-aos-duration="900" data-aos-easing="ease-out-cubic" data-aos-offset="80">
                         <div class="carousel-inner">
                             @foreach ($galleryVideos as $key => $gallery)
                                 <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
@@ -168,3 +178,19 @@
     </div>
   </div>
 @endsection
+
+@push('script')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var tabButtons = document.querySelectorAll('#projectDetailTabs button[data-bs-toggle="tab"]');
+
+        tabButtons.forEach(function (btn) {
+            btn.addEventListener('shown.bs.tab', function () {
+                if (window.AOS) {
+                    AOS.refresh();
+                }
+            });
+        });
+    });
+</script>
+@endpush

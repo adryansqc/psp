@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ asset('dummypsp') }}/assets/css/owl.css">
     <link rel="stylesheet" href="{{ asset('dummypsp') }}/assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <link href="{{ asset('css/aos/aos.css') }}" rel="stylesheet">
 
     @stack('style')
   </head>
@@ -49,6 +50,19 @@
   <script src="{{ asset('dummypsp') }}/assets/js/owl-carousel.js"></script>
   <script src="{{ asset('dummypsp') }}/assets/js/counter.js"></script>
   <script src="{{ asset('dummypsp') }}/assets/js/custom.js"></script>
+  <script src="{{ asset('js/aos/aos.js') }}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        AOS.init({
+            once: true,
+            duration: 1000,
+            easing: 'ease-out-cubic',
+            offset: 120,
+            mirror: false,
+            anchorPlacement: 'top-bottom'
+        });
+    });
+</script>
   @stack('script')
 
   </body>

@@ -28,7 +28,7 @@ class ProjectSeeder extends Seeder
                 'informasi' => 'Hunian eksklusif dengan konsep resort yang menawarkan kenyamanan dan kemewahan bagi penghuninya.',
                 'fasilitas' => 'Kolam renang, clubhouse, jogging track, keamanan 24 jam.',
                 'lokasi' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.26110217641806!2d103.57692970521003!3d-1.6431931901460692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e2587c60edd0c1d%3A0xae7a9989ad67837a!2sRumah%20Kito%20Resort%20Hotel%20Jambi%20by%20Waringin%20Hospitality!5e0!3m2!1sid!2sid!4v1783418086962!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>',
-                'pin' => false,
+                'pin' => true,
                 'developer' => 'Putra Sentosa Prakarsa',
             ],
             [
@@ -36,7 +36,7 @@ class ProjectSeeder extends Seeder
                 'informasi' => 'Perumahan modern minimalis dengan fasilitas lengkap dan lingkungan yang aman.',
                 'fasilitas' => 'Security 24 jam, taman hijau, area olahraga, tempat ibadah.',
                 'lokasi' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.2612301240524!2d103.57793881074106!3d-1.6421676543944628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e2587c58cad2057%3A0x8967ac48689eae18!2sPuri%20Mayang!5e0!3m2!1sid!2sid!4v1783418131804!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>',
-                'pin' => false,
+                'pin' => true,
                 'developer' => 'Putra Sentosa Prakarsa',
             ],
             [

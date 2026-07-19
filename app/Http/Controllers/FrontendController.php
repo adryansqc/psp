@@ -22,7 +22,7 @@ class FrontendController extends Controller
         $mapProjects = Project::whereNotNull('lokasi')->get();
         $sliders = ImageSlider::active()->get();
 
-        return view('fe.page.beranda.home', compact('pinnedProjects', 'mapProjects', 'sliders'));
+        return view('tailwind.page.beranda.home', compact('pinnedProjects', 'mapProjects', 'sliders'));
     }
     public function about()
     {

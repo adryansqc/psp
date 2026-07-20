@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AboutUs;
 use App\Models\Faq;
 use App\Models\ImageSlider;
 use App\Models\Project;
@@ -26,7 +27,11 @@ class FrontendController extends Controller
     }
     public function about()
     {
-        return view('fe.page.about.about');
+        $sliders = ImageSlider::active()->get();
+        $aboutUs = AboutUs::first();
+        $mapProjects = Project::whereNotNull('lokasi')->get();
+
+        return view('tailwind.page.aboutus.about_us', compact('sliders', 'aboutUs', 'mapProjects'));
     }
 
     public function allProject()

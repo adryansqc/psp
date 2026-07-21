@@ -53,6 +53,7 @@ class ProjectResource extends Resource
         return [
             RelationManagers\GalleriesRelationManager::class,
             RelationManagers\LogosRelationManager::class,
+            RelationManagers\FasilitasRelationManager::class,
         ];
     }
 

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama_projek');
             $table->text('informasi')->nullable();
             $table->enum('kategori', ['residensial', 'commercial_area', 'hotel_resort'])->default('residensial');
-            $table->text('fasilitas')->nullable();
+            // $table->text('fasilitas')->nullable();
             $table->text('lokasi')->nullable();
             $table->text('developer')->nullable();
             $table->boolean('pin')->default(false);

@@ -55,9 +55,6 @@ class ProjectsTable
                 TextColumn::make('informasi')
                     ->limit(50)
                     ->searchable(),
-                TextColumn::make('fasilitas')
-                    ->limit(50)
-                    ->searchable(),
                 ToggleColumn::make('pin')
                     ->label('Pin')
                     ->onColor('success')

@@ -19,7 +19,7 @@ class Project extends Model
         'nama_projek',
         'informasi',
         'kategori',
-        'fasilitas',
+        // 'fasilitas',
         'lokasi',
         'pin',
         'developer',
@@ -48,6 +48,11 @@ class Project extends Model
     {
         return $this->hasMany(Logo::class)->orderBy('order', 'asc');;
     }
+
+    public function fasilitas()
+{
+    return $this->hasMany(Fasilitas::class)->orderBy('order', 'asc');
+}
     public function getMapLatitudeAttribute(): ?float
     {
         $coords = $this->extractMapCoordinates();

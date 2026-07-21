@@ -50,9 +50,6 @@ class ProjectForm
                 Textarea::make('informasi')
                     ->required()
                     ->columnSpanFull(),
-                Textarea::make('fasilitas')
-                    ->required()
-                    ->columnSpanFull(),
                 Textarea::make('lokasi')
                     ->helperText('isilah lokasi dengan embed dari google maps dan width nya diubah menjadi 100%')
                     ->required()

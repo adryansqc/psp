@@ -74,16 +74,14 @@
                         @endif
                     </a>
 
-                    <a href="{{ url('/kontak') }}"
-                        class="relative pb-1 transition-colors {{ request()->is('kontak*') ? 'text-gold' : 'text-forest hover:text-gold' }}">
-                        Kontak
-                        @if (request()->is('kontak*'))
-                            <span class="absolute left-0 -bottom-1 w-full h-px bg-gold"></span>
-                        @endif
-                    </a>
                 </nav>
 
                 <div class="flex items-center gap-5">
+
+                    <a href="{{ route('frontend.contact') }}"
+                        class="inline-flex items-center px-5 py-2.5 border border-forest text-white text-sm tracking-wide rounded-lg bg-forest transition-colors">
+                        Hubungi Kami
+                    </a>
 
                     <div class="relative" @mouseenter="langOpen = true" @mouseleave="langOpen = false">
                         <button
@@ -111,11 +109,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <a href="{{ url('/kontak') }}"
-                        class="inline-flex items-center px-5 py-2.5 border border-forest text-white text-sm tracking-wide rounded-lg bg-forest transition-colors">
-                        Hubungi Kami
-                    </a>
                 </div>
             </div>
 
@@ -175,10 +168,6 @@
                 class="py-3 border-b border-ink/10 {{ request()->is('berita*') ? 'text-gold font-medium' : 'text-forest' }}">
                 Berita & Acara
             </a>
-            <a href="{{ url('/kontak') }}"
-                class="py-3 border-b border-ink/10 {{ request()->is('kontak*') ? 'text-gold font-medium' : 'text-forest' }}">
-                Kontak
-            </a>
 
             <div class="flex items-center gap-3 py-4">
                 <span class="text-xs uppercase tracking-[0.15em] text-ink-soft">Bahasa:</span>
@@ -193,7 +182,7 @@
                 </button>
             </div>
 
-            <a href="{{ url('/kontak') }}"
+            <a href="{{ route('frontend.contact') }}"
                 class="mt-2 inline-flex justify-center items-center px-5 py-3 border border-forest text-forest tracking-wide">
                 Hubungi Kami
             </a>

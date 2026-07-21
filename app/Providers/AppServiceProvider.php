@@ -33,5 +33,6 @@ class AppServiceProvider extends ServiceProvider
         \App\Models\AboutUs::observe(\App\Observers\AboutUsObserver::class);
         \App\Models\Berita::observe(\App\Observers\BeritaObserver::class);
         \App\Models\Logo::observe(\App\Observers\LogoObserver::class);
+        \App\Models\Fasilitas::observe(\App\Observers\FasilitasObserver::class);
     }
 }

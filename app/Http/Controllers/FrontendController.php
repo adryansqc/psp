@@ -51,7 +51,7 @@ class FrontendController extends Controller
     }
     public function project($uuid)
     {
-        $project = Project::with(['galleries', 'logos'])
+        $project = Project::with(['galleries', 'logos', 'fasilitas'])
             ->where('uuid', $uuid)
             ->firstOrFail();
 
@@ -101,6 +101,6 @@ class FrontendController extends Controller
         $faqs = Faq::active()->get();
         $mapProjects = Project::whereNotNull('lokasi')->get();
 
-        return view('fe.page.contactUs.contactus', compact('faqs', 'mapProjects'));
+        return view('tailwind.page.contactUs.contact_us', compact('faqs', 'mapProjects'));
     }
 }

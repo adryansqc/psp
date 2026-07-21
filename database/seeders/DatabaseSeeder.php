@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             BeritaSeeder::class,
             GalleriesProjectSeeder::class,
             LogoSeeder::class,
+            FasilitasSeeder::class,
 
         ];
 

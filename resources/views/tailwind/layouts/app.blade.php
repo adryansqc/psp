@@ -32,6 +32,8 @@
 
     @include('tailwind.components.footer')
 
+    @include('tailwind.components.whatsapp-float')
+
     <script src="{{ asset('js/aos/aos.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {

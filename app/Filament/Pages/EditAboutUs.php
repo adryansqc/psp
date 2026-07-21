@@ -4,6 +4,7 @@ namespace App\Filament\Pages;
 
 use App\Models\AboutUs;
 use BackedEnum;
+use BezhanSalleh\FilamentShield\Traits\HasPageShield;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
@@ -15,7 +16,7 @@ use Filament\Support\Icons\Heroicon;
 
 class EditAboutUs extends Page implements HasForms
 {
-    use InteractsWithForms;
+    use InteractsWithForms, HasPageShield;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedAdjustmentsVertical;
 
@@ -42,6 +43,9 @@ class EditAboutUs extends Page implements HasForms
                     ->components([
                         RichEditor::make('deskripsi_psp')
                             ->label('Deskripsi PSP')
+                            ->fileAttachmentsDisk('public')
+                            ->fileAttachmentsDirectory('about-us')
+                            ->fileAttachmentsVisibility('public')
                             ->columnSpanFull(),
                     ]),
 
@@ -49,6 +53,9 @@ class EditAboutUs extends Page implements HasForms
                     ->components([
                         RichEditor::make('history')
                             ->label('History')
+                            ->fileAttachmentsDisk('public')
+                            ->fileAttachmentsDirectory('about-us')
+                            ->fileAttachmentsVisibility('public')
                             ->columnSpanFull(),
                     ]),
 
@@ -56,10 +63,16 @@ class EditAboutUs extends Page implements HasForms
                     ->components([
                         RichEditor::make('visi')
                             ->label('Visi')
+                            ->fileAttachmentsDisk('public')
+                            ->fileAttachmentsDirectory('about-us')
+                            ->fileAttachmentsVisibility('public')
                             ->columnSpanFull(),
 
                         RichEditor::make('nilai')
                             ->label('Nilai')
+                            ->fileAttachmentsDisk('public')
+                            ->fileAttachmentsDirectory('about-us')
+                            ->fileAttachmentsVisibility('public')
                             ->columnSpanFull(),
                     ]),
 
@@ -67,6 +80,9 @@ class EditAboutUs extends Page implements HasForms
                     ->components([
                         RichEditor::make('our_project')
                             ->label('Our Project')
+                            ->fileAttachmentsDisk('public')
+                            ->fileAttachmentsDirectory('about-us')
+                            ->fileAttachmentsVisibility('public')
                             ->columnSpanFull(),
                     ]),
             ])

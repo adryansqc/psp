@@ -66,9 +66,9 @@
                         </div>
                     </div>
 
-                    <a href="{{ url('/berita') }}"
+                    <a href="{{ route('frontend.allBerita') }}"
                         class="relative pb-1 transition-colors {{ request()->is('berita*') ? 'text-gold' : 'text-forest hover:text-gold' }}">
-                        Berita
+                        Berita & Acara
                         @if (request()->is('berita*'))
                             <span class="absolute left-0 -bottom-1 w-full h-px bg-gold"></span>
                         @endif
@@ -145,6 +145,7 @@
                 Tentang Kami
             </a>
 
+
             <div class="border-b border-ink/10">
                 <button @click="mobileProjectsOpen = !mobileProjectsOpen"
                     class="w-full flex items-center justify-between py-3 {{ request()->is('proyek*') ? 'text-gold font-medium' : 'text-forest' }}">
@@ -154,7 +155,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
-                <div x-show="mobileProjectsOpen" x-collapse x-cloak class="pb-3 pl-4 flex flex-col gap-1">
+                <div x-show="mobileProjectsOpen" x-cloak class="pb-3 pl-4 flex flex-col gap-1">
                     <a href="{{ url('/proyek') }}"
                         class="py-2 text-sm {{ request()->is('proyek') && !request('tipe') ? 'text-gold font-medium' : 'text-forest/80' }}">
                         Semua Proyek
@@ -170,9 +171,9 @@
                 </div>
             </div>
 
-            <a href="{{ url('/berita') }}"
+            <a href="{{ route('frontend.allBerita') }}"
                 class="py-3 border-b border-ink/10 {{ request()->is('berita*') ? 'text-gold font-medium' : 'text-forest' }}">
-                Berita
+                Berita & Acara
             </a>
             <a href="{{ url('/kontak') }}"
                 class="py-3 border-b border-ink/10 {{ request()->is('kontak*') ? 'text-gold font-medium' : 'text-forest' }}">

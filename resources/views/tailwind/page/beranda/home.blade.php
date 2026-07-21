@@ -12,8 +12,9 @@
                     :class="active === index ?
                         'transition-[clip-path,opacity] duration-[1000ms] ease-out opacity-100 [clip-path:inset(0%)]' :
                         'opacity-0 [clip-path:inset(40%)] pointer-events-none'">
-                    <img :src="'/storage/' + slide.gambar" :alt="slide.second_title" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-forest/60"></div>
+                    <img :src="'/storage/' + slide.gambar" :alt="slide.second_title"
+                        class="w-full h-full object-cover object-center">
+                    <div class="absolute inset-0"></div>
                 </div>
             </template>
             <div class="relative max-w-7xl mx-auto px-6 lg:px-10 text-stone z-10">
@@ -33,7 +34,7 @@
                     dan kualitas yang bisa dipercaya.
                 </p>
                 <a href="#proyek"
-                    class="mt-8 inline-flex items-center px-7 py-3 bg-gold text-forest text-sm tracking-wide hover:bg-gold-light transition-colors">
+                    class="mt-8 inline-flex items-center px-7 py-3 bg-gold text-forest rounded-lg text-sm tracking-wide hover:bg-gold-light transition-colors">
                     Pelajari Lebih Lanjut
                 </a>
             </div>
@@ -50,7 +51,7 @@
         <section class="relative h-[90vh] min-h-[560px] flex items-center overflow-hidden bg-forest">
             <div class="absolute inset-0">
                 <img src="https://picsum.photos/seed/psp-fallback/1600/1000" alt="PT. Putra Sentosa Prakarsa"
-                    class="w-full h-full object-cover opacity-60">
+                    class="w-full h-full object-cover object-center opacity-80">
             </div>
             <div class="absolute inset-0 bg-forest/60"></div>
 

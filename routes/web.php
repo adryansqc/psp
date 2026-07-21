@@ -10,6 +10,7 @@ Route::get('/about', [FrontendController::class, 'about'])->name('frontend.about
 Route::get('/project/{uuid}', [FrontendController::class, 'project'])->name('frontend.project');
 Route::get('/contact-us', [FrontendController::class, 'contact'])->name('frontend.contact');
 Route::get('/project', [FrontendController::class, 'allProject'])->name('frontend.allProject');
+Route::get('/berita', [FrontendController::class, 'allBerita'])->name('frontend.allBerita');
 // Route::get('/auth/redirect/{provider}', [AuthController::class, 'redirect'])->name('auth.redirect');
 // Route::get('/auth/callback/{provider}', [AuthController::class, 'callback'])->name('auth.callback');
 // Route::get('/auth/create-password', [AuthController::class, 'create_password'])->name('auth.create-password');

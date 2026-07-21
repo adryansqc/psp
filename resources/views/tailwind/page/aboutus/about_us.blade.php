@@ -12,8 +12,9 @@
                     :class="active === index ?
                         'transition-[clip-path,opacity] duration-[1000ms] ease-out opacity-100 [clip-path:inset(0%)]' :
                         'opacity-0 [clip-path:inset(40%)] pointer-events-none'">
-                    <img :src="'/storage/' + slide.gambar" :alt="slide.second_title" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-forest/60"></div>
+                    <img :src="'/storage/' + slide.gambar" :alt="slide.second_title"
+                        class="w-full h-full object-cover object-center">
+                    <div class="absolute inset-0"></div>
                 </div>
             </template>
             <div class="relative max-w-7xl mx-auto px-6 lg:px-10 text-stone z-10">
@@ -33,7 +34,7 @@
                     dan kualitas yang bisa dipercaya.
                 </p>
                 <a href="#proyek"
-                    class="mt-8 inline-flex items-center px-7 py-3 bg-gold text-forest text-sm tracking-wide hover:bg-gold-light transition-colors">
+                    class="mt-8 inline-flex items-center px-7 py-3 bg-gold text-forest rounded-lg text-sm tracking-wide hover:bg-gold-light transition-colors">
                     Pelajari Lebih Lanjut
                 </a>
             </div>
@@ -50,7 +51,7 @@
         <section class="relative h-[90vh] min-h-[560px] flex items-center overflow-hidden bg-forest">
             <div class="absolute inset-0">
                 <img src="https://picsum.photos/seed/psp-fallback/1600/1000" alt="PT. Putra Sentosa Prakarsa"
-                    class="w-full h-full object-cover opacity-60">
+                    class="w-full h-full object-cover object-center opacity-80">
             </div>
             <div class="absolute inset-0 bg-forest/60"></div>
 
@@ -76,17 +77,16 @@
     <section class="relative bg-white py-24 lg:py-32" id="proyek">
         <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
-            <div class="grid lg:grid-cols-12 gap-y-2 lg:gap-x-16"
-                x-data="{
-                    active: 'deskripsi_psp',
-                    panels: {
-                        deskripsi_psp: { label: 'Deskripsi PSP', content: @js($aboutUs->deskripsi_psp ?? '<p>Belum ada data.</p>') },
-                        history:       { label: 'Sejarah',       content: @js($aboutUs->history ?? '<p>Belum ada data.</p>') },
-                        visi:          { label: 'Visi',          content: @js($aboutUs->visi ?? '<p>Belum ada data.</p>') },
-                        nilai:         { label: 'Nilai',         content: @js($aboutUs->nilai ?? '<p>Belum ada data.</p>') },
-                        our_project:   { label: 'Proyek Kami',   content: @js($aboutUs->our_project ?? '<p>Belum ada data.</p>') },
-                    }
-                }">
+            <div class="grid lg:grid-cols-12 gap-y-2 lg:gap-x-16" x-data="{
+                active: 'deskripsi_psp',
+                panels: {
+                    deskripsi_psp: { label: 'Deskripsi PSP', content: @js($aboutUs->deskripsi_psp ?? '<p>Belum ada data.</p>') },
+                    history: { label: 'Sejarah', content: @js($aboutUs->history ?? '<p>Belum ada data.</p>') },
+                    visi: { label: 'Visi', content: @js($aboutUs->visi ?? '<p>Belum ada data.</p>') },
+                    nilai: { label: 'Nilai', content: @js($aboutUs->nilai ?? '<p>Belum ada data.</p>') },
+                    our_project: { label: 'Proyek Kami', content: @js($aboutUs->our_project ?? '<p>Belum ada data.</p>') },
+                }
+            }">
 
                 <nav class="lg:col-span-4">
                     <ul class="border-t border-ink/10">
@@ -98,7 +98,8 @@
                                         :class="active === key ? 'text-forest' : 'text-ink-soft group-hover:text-ink'"
                                         x-text="panel.label"></span>
 
-                                    <span class="relative w-9 h-9 rounded-full border flex items-center justify-center shrink-0 transition-colors"
+                                    <span
+                                        class="relative w-9 h-9 rounded-full border flex items-center justify-center shrink-0 transition-colors"
                                         :class="active === key ? 'border-gold bg-gold/10' : 'border-ink/15'">
                                         <span class="absolute w-3.5 h-px transition-colors"
                                             :class="active === key ? 'bg-forest' : 'bg-ink-soft'"></span>
@@ -113,26 +114,11 @@
 
                 <div class="lg:col-span-8 relative mt-10 lg:mt-0 min-h-[240px]">
                     <template x-for="(panel, key) in panels" :key="'panel-' + key">
-                        {{-- <div x-show="active === key"
-                            x-transition:enter="transition ease-out duration-500"
+                        <div x-show="active === key" x-transition:enter="transition ease-out duration-500"
                             x-transition:enter-start="opacity-0 translate-y-2"
                             x-transition:enter-end="opacity-100 translate-y-0">
 
-                            <h3 class="font-display text-2xl sm:text-3xl text-forest mb-6"
-                                x-text="panel.label"></h3>
-
-                            <div class="prose prose-neutral max-w-none text-ink-soft leading-relaxed
-                                    prose-headings:font-display prose-headings:text-forest
-                                    prose-a:text-gold prose-strong:text-ink"
-                                x-html="panel.content"></div>
-                        </div> --}}
-                        <div x-show="active === key"
-                            x-transition:enter="transition ease-out duration-500"
-                            x-transition:enter-start="opacity-0 translate-y-2"
-                            x-transition:enter-end="opacity-100 translate-y-0">
-
-                            <h3 class="font-display text-2xl sm:text-3xl text-forest mb-6"
-                                x-text="panel.label"></h3>
+                            <h3 class="font-display text-2xl sm:text-3xl text-forest mb-6" x-text="panel.label"></h3>
 
                             <div class="rich-content" x-html="panel.content"></div>
                         </div>

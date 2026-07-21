@@ -9,7 +9,9 @@
 
     <title>@yield('title') - Putra Sentosa Prakasa</title>
 
-    @if (isset($settingItems['favicon']) && $settingItems['favicon']->value && \Storage::disk('public')->exists($settingItems['favicon']->value))
+    @if (isset($settingItems['favicon']) &&
+            $settingItems['favicon']->value &&
+            \Storage::disk('public')->exists($settingItems['favicon']->value))
         <link rel="shortcut icon" type="image/x-icon" href="{{ Storage::url($settingItems['favicon']->value) }}">
     @else
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('dummypsp') }}/assets/images/Logo_psp.png">
@@ -22,7 +24,7 @@
     @stack('style')
 </head>
 
-<body class="bg-cream text-ink font-sans antialiased" x-cloak>
+<body class="bg-cream text-ink font-sans antialiased">
 
     @include('tailwind.components.navbar')
 
@@ -32,7 +34,7 @@
 
     <script src="{{ asset('js/aos/aos.js') }}"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             AOS.init({
                 once: true,
                 duration: 1000,

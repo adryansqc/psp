@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AboutUs;
+use App\Models\Berita;
 use App\Models\Faq;
 use App\Models\ImageSlider;
 use App\Models\Project;
@@ -39,6 +40,13 @@ class FrontendController extends Controller
         $projects = Project::latest()->get();
 
         return view('fe.page.project.project', compact('projects'));
+    }
+
+    public function allBerita()
+    {
+        $beritas = Berita::latest()->get();
+
+        return view('tailwind.page.berita.berita_acara', compact('beritas'));
     }
     public function project($uuid)
     {

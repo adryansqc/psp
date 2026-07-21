@@ -22,6 +22,10 @@
     --color-cream: #F7F5EF;
 }
 
+[x-cloak] {
+    display: none !important;
+}
+
 .rich-content {
     color: var(--color-ink-soft);
 }

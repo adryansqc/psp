@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             ProjectSeeder::class,
             FaqSeeder::class,
             AboutUsSeeder::class,
+            BeritaSeeder::class,
         ];
 
         foreach ($seeders as $seeder) {

@@ -30,5 +30,7 @@ class AppServiceProvider extends ServiceProvider
         \App\Models\Project::observe(\App\Observers\ProjectObserver::class);
         \App\Models\GalleriesProject::observe(\App\Observers\GalleriesProjectObserver::class);
         \App\Models\ImageSlider::observe(\App\Observers\ImageSliderObserver::class);
+        \App\Models\AboutUs::observe(\App\Observers\AboutUsObserver::class);
+        \App\Models\Berita::observe(\App\Observers\BeritaObserver::class);
     }
 }

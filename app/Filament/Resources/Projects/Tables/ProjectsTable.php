@@ -33,6 +33,25 @@ class ProjectsTable
                     ->sortable()
                     ->badge()
                     ->color('primary'),
+                TextColumn::make('kategori')
+                    ->label('Kategori')
+                    ->badge()
+                    ->color(fn(string $state): string => match ($state) {
+                        'residensial' => 'primary',
+                        'commercial_area' => 'success',
+                        'hotel_resort' => 'warning',
+                        default => 'gray',
+                    })
+                    ->formatStateUsing(fn(string $state): string => match ($state) {
+                        'residensial' => 'Residensial',
+                        'commercial_area' => 'Commercial Area',
+                        'hotel_resort' => 'Hotel & Resort',
+                        default => $state,
+                    })
+                    ->default('belum ada kategori')
+                    ->searchable()
+                    ->sortable(),
+
                 TextColumn::make('informasi')
                     ->limit(50)
                     ->searchable(),

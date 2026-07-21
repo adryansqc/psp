@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Projects\Schemas;
 
 use App\Models\Project;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
@@ -27,6 +28,18 @@ class ProjectForm
                 TextInput::make('nama_projek')
                     ->columnSpanFull()
                     ->required(),
+                Select::make('kategori')
+                    ->label('Kategori')
+                    ->options([
+                        'residensial' => 'Residensial',
+                        'commercial_area' => 'Commercial Area',
+                        'hotel_resort' => 'Hotel & Resort',
+                    ])
+                    ->default('residensial')
+                    ->required()
+                    ->native(false)
+                    ->columnSpanFull()
+                    ->helperText('Pilih kategori project'),
                 TextInput::make('developer')
                     ->label('Developer')
                     ->placeholder('Masukkan nama developer')

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Ramsey\Uuid\Uuid;
@@ -17,6 +18,7 @@ class Project extends Model
         'cover',
         'nama_projek',
         'informasi',
+        'kategori',
         'fasilitas',
         'lokasi',
         'pin',
@@ -40,6 +42,11 @@ class Project extends Model
     public function galleries()
     {
         return $this->hasMany(GalleriesProject::class)->orderBy('order', 'asc');;
+    }
+
+    public function logos()
+    {
+        return $this->hasMany(Logo::class)->orderBy('order', 'asc');;
     }
     public function getMapLatitudeAttribute(): ?float
     {
@@ -74,5 +81,20 @@ class Project extends Model
         }
 
         return null;
+    }
+
+    public function scopeResidensial(Builder $query): Builder
+    {
+        return $query->where('kategori', 'residensial');
+    }
+
+    public function scopeCommercialArea(Builder $query): Builder
+    {
+        return $query->where('kategori', 'commercial_area');
+    }
+
+    public function scopeHotelAndArea(Builder $query): Builder
+    {
+        return $query->where('kategori', 'hotel_resort');
     }
 }

@@ -17,6 +17,7 @@ class SettingSeeder extends Seeder
             'siteConfig' => Setting::updateOrCreate(['name' => 'Site Config']),
             'contact'    => Setting::updateOrCreate(['name' => 'Contact']),
             'medsos'    => Setting::updateOrCreate(['name' => 'Medsos']),
+            'footer'    => Setting::updateOrCreate(['name' => 'Footer']),
         ];
 
         $settingItems = [
@@ -127,6 +128,14 @@ class SettingSeeder extends Seeder
                 'key'         => 'linkedin',
                 'type'        => 'url',
                 'value'       => 'https://linkedind.com',
+                'helper_text' => null,
+            ],
+            [
+                'setting_id'  => $settings['footer']->id,
+                'name'        => 'Pasal Sanggah',
+                'key'         => 'pasal',
+                'type'        => 'text',
+                'value'       => 'Seluruh informasi, gambar, dan visualisasi pada situs ini bersifat ilustratif dan dapat berubah sewaktu-waktu tanpa pemberitahuan sebelumnya. PT. Putra Sentosa Prakarsa tidak bertanggung jawab atas kerugian yang timbul akibat penggunaan informasi pada situs ini.',
                 'helper_text' => null,
             ],
         ];

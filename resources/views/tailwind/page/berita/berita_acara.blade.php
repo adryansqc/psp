@@ -26,7 +26,6 @@
         <section class="py-24 bg-white" x-data="{
             atStart: true,
             atEnd: false,
-            timer: null,
             updateEdges() {
                 const el = $refs.track;
                 this.atStart = el.scrollLeft <= 4;
@@ -43,12 +42,8 @@
                 } else {
                     el.scrollBy({ left: direction * amount, behavior: 'smooth' });
                 }
-            },
-            startAutoplay() {
-                this.timer = setInterval(() => this.scroll(1), 3000);
             }
-        }" x-init="updateEdges();
-        startAutoplay()">
+        }" x-init="updateEdges()">
             <div class="max-w-7xl mx-auto px-6 lg:px-10">
                 <div class="max-w-xl mx-auto text-center" data-aos="fade-up">
                     <p class="text-xs uppercase tracking-[0.25em] text-gold mb-3">Berita</p>
@@ -74,8 +69,7 @@
                         </svg>
                     </button>
 
-                    <div x-ref="track" @scroll.debounce.100ms="updateEdges()" @mouseenter="clearInterval(timer)"
-                        @mouseleave="startAutoplay()"
+                    <div x-ref="track" @scroll.debounce.100ms="updateEdges()"
                         class="flex gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                         @foreach ($daftarBerita as $i => $berita)
                             <div class="w-full shrink-0 snap-start bg-cream rounded-3xl overflow-hidden" data-aos="fade-up">
@@ -109,7 +103,6 @@
         <section class="py-24 bg-cream" x-data="{
             atStart: true,
             atEnd: false,
-            timer: null,
             updateEdges() {
                 const el = $refs.track;
                 this.atStart = el.scrollLeft <= 4;
@@ -126,12 +119,8 @@
                 } else {
                     el.scrollBy({ left: direction * amount, behavior: 'smooth' });
                 }
-            },
-            startAutoplay() {
-                this.timer = setInterval(() => this.scroll(1), 3000);
             }
-        }" x-init="updateEdges();
-        startAutoplay()">
+        }" x-init="updateEdges()">
             <div class="max-w-7xl mx-auto px-6 lg:px-10">
                 <div class="max-w-xl mx-auto text-center" data-aos="fade-up">
                     <p class="text-xs uppercase tracking-[0.25em] text-gold mb-3">Acara</p>
@@ -157,8 +146,7 @@
                         </svg>
                     </button>
 
-                    <div x-ref="track" @scroll.debounce.100ms="updateEdges()" @mouseenter="clearInterval(timer)"
-                        @mouseleave="startAutoplay()"
+                    <div x-ref="track" @scroll.debounce.100ms="updateEdges()"
                         class="flex gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                         @foreach ($daftarAcara as $i => $acara)
                             <div class="w-full shrink-0 snap-start bg-white rounded-3xl overflow-hidden" data-aos="fade-up">

@@ -26,6 +26,9 @@ class DatabaseSeeder extends Seeder
             FaqSeeder::class,
             AboutUsSeeder::class,
             BeritaSeeder::class,
+            GalleriesProjectSeeder::class,
+            LogoSeeder::class,
+
         ];
 
         foreach ($seeders as $seeder) {

@@ -111,7 +111,7 @@
                         const card = el.querySelector(':scope > *');
                         const gap = 32;
                         const amount = card ? card.offsetWidth + gap : el.clientWidth * 0.8;
-                
+
                         if (direction === 1 && this.atEnd) {
                             el.scrollTo({ left: 0, behavior: 'smooth' });
                         } else {
@@ -191,7 +191,7 @@
             const card = el.querySelector(':scope > *');
             const gap = 32; // sama dengan gap-8 (2rem)
             const amount = card ? card.offsetWidth + gap : el.clientWidth * 0.8;
-    
+
             if (direction === 1 && this.atEnd) {
                 el.scrollTo({ left: 0, behavior: 'smooth' });
             } else {
@@ -231,23 +231,23 @@
                 <div x-ref="track" @scroll.debounce.100ms="updateEdges()" @mouseenter="clearInterval(timer)"
                     @mouseleave="startAutoplay()"
                     class="flex gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                    @foreach ($pinnedProjects as $i => $project)
+                    @foreach ($beritas as $i => $berita)
                         <a href="#"
                             class="group block shrink-0 w-[80%] sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] snap-start
                                         bg-cream rounded-3xl p-5"
                             data-aos="fade-up" data-aos-delay="{{ ($i % 3) * 100 }}">
                             <div class="overflow-hidden rounded-2xl">
-                                <img src="{{ $project->cover ? \Storage::url($project->cover) : 'https://picsum.photos/seed/' . $project->uuid . '/800/600' }}"
-                                    alt="{{ $project->nama_projek }}"
+                                <img src="{{ $berita->cover ? \Storage::url($berita->cover) : 'https://picsum.photos/seed/' . $berita->uuid . '/1000/800' }}"
+                                    alt="{{ $berita->judul }}"
                                     class="w-full h-48 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500">
                             </div>
                             <div class="pt-5">
                                 <p class="text-xs uppercase tracking-[0.15em] text-gold">
-                                    {{ $project->developer }}
+                                    {{ $berita->created_at->translatedFormat('d F Y') }}
                                 </p>
                                 <h3
                                     class="mt-2 font-display text-xl text-ink group-hover:text-forest-light transition-colors">
-                                    {{ $project->nama_projek }}
+                                    {{ $berita->judul }}
                                 </h3>
                             </div>
                         </a>

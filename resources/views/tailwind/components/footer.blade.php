@@ -34,12 +34,14 @@
             <ul class="space-y-3 text-sm text-stone/80">
                 <li><a href="{{ url('/kontak') }}" class="hover:text-gold transition-colors">Kontak</a></li>
                 <li>
-                    <a href="mailto:{{ $settingItems['email']->value ?? '' }}" class="hover:text-gold transition-colors">
+                    <a href="mailto:{{ $settingItems['email']->value ?? '' }}"
+                        class="hover:text-gold transition-colors">
                         {{ $settingItems['email']->value ?? 'Email Perusahaan' }}
                     </a>
                 </li>
                 <li>
-                    <a href="tel:{{ $settingItems['phone_number']->value ?? '' }}" class="hover:text-gold transition-colors">
+                    <a href="tel:{{ $settingItems['phone_number']->value ?? '' }}"
+                        class="hover:text-gold transition-colors">
                         {{ $settingItems['phone_number']->value ?? 'No. Tlp' }}
                     </a>
                 </li>
@@ -96,10 +98,7 @@
         <div class="max-w-3xl mx-auto px-6 lg:px-10 py-6 text-center">
             <h3 class="text-xs uppercase tracking-[0.2em] text-gold mb-4">Pasal Sanggahan</h3>
             <p class="text-xs text-stone/50 leading-relaxed">
-                Seluruh informasi, gambar, dan visualisasi pada situs ini bersifat ilustratif
-                dan dapat berubah sewaktu-waktu tanpa pemberitahuan sebelumnya. PT. Putra Sentosa
-                Prakarsa tidak bertanggung jawab atas kerugian yang timbul akibat penggunaan
-                informasi pada situs ini.
+                {{ $settingItems['pasal']->value ?? 'Pasal Sanggah' }}
             </p>
         </div>
     </div>

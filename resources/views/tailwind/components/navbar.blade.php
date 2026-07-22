@@ -1,4 +1,22 @@
-<header x-data="{ mobileOpen: false, projectsOpen: false, mobileProjectsOpen: false, langOpen: false, lang: 'ID', scrolled: false }" x-init="window.addEventListener('scroll', () => scrolled = window.scrollY > 40)" :class="scrolled && 'shadow-md'"
+<header x-data="{
+    mobileOpen: false,
+    projectsOpen: false,
+    mobileProjectsOpen: false,
+    langOpen: false,
+    lang: localStorage.getItem('preferred_lang') === 'en' ? 'EN' : 'ID',
+    scrolled: false,
+    navText: {
+        beranda: { ID: 'Beranda', EN: 'Home' },
+        tentang: { ID: 'Tentang Kami', EN: 'About Us' },
+        proyek: { ID: 'Proyek', EN: 'Projects' },
+        residensial: { ID: 'Residensial', EN: 'Residential' },
+        komersial: { ID: 'Komersial', EN: 'Commercial' },
+        hotelResort: { ID: 'Hotel & Resort', EN: 'Hotel & Resort' },
+        beritaAcara: { ID: 'Berita & Acara', EN: 'News & Events' },
+        hubungiKami: { ID: 'Hubungi Kami', EN: 'Contact Us' },
+        bahasaLabel: { ID: 'Bahasa:', EN: 'Language:' },
+    }
+}" x-init="window.addEventListener('scroll', () => scrolled = window.scrollY > 40)" :class="scrolled && 'shadow-md'"
     class="fixed top-0 inset-x-0 z-50 bg-white border-b border-ink/5 transition-shadow duration-300">
     <div class="w-full px-6 lg:px-10">
         <div class="flex items-center h-20">
@@ -7,26 +25,27 @@
                 class="flex items-center gap-2 shrink-0 border border-forest/15 rounded-full pl-2 pr-4 py-1.5">
                 <img src="{{ asset('dummypsp') }}/assets/images/Logo_psp.png" alt="Logo PSP"
                     class="h-8 w-8 object-contain">
-                <span class="font-display text-2xl tracking-wide text-forest">PSP</span>
-                <span class="hidden sm:inline text-[11px] uppercase tracking-[0.2em] text-forest-light self-end mb-1">
+                <span class="font-display text-2xl tracking-wide text-forest" translate="no">PSP</span>
+                <span class="hidden sm:inline text-[11px] uppercase tracking-[0.2em] text-forest-light self-end mb-1"
+                    translate="no">
                     Putra Sentosa Prakarsa
                 </span>
             </a>
 
             <div class="hidden lg:flex items-center gap-10 ml-auto">
 
-                <nav class="flex items-center gap-10 font-body text-sm">
+                <nav class="flex items-center gap-10 font-body text-sm" translate="no">
                     <a href="{{ url('/') }}"
-                        class="relative pb-1 transition-colors {{ request()->is('/') ? 'text-gold' : 'text-forest hover:text-gold' }}">
-                        Beranda
+                        class="relative pb-1 transition-colors {{ request()->is('/') ? 'text-gold' : 'text-forest hover:text-gold' }}"
+                        x-text="navText.beranda[lang]">
                         @if (request()->is('/'))
                             <span class="absolute left-0 -bottom-1 w-full h-px bg-gold"></span>
                         @endif
                     </a>
 
                     <a href="{{ route('frontend.about') }}"
-                        class="relative pb-1 transition-colors {{ request()->routeIs('frontend.about') ? 'text-gold' : 'text-forest hover:text-gold' }}">
-                        Tentang Kami
+                        class="relative pb-1 transition-colors {{ request()->routeIs('frontend.about') ? 'text-gold' : 'text-forest hover:text-gold' }}"
+                        x-text="navText.tentang[lang]">
                         @if (request()->routeIs('frontend.about'))
                             <span class="absolute left-0 -bottom-1 w-full h-px bg-gold"></span>
                         @endif
@@ -35,7 +54,7 @@
                     <div class="relative" @mouseenter="projectsOpen = true" @mouseleave="projectsOpen = false">
                         <button
                             class="relative pb-1 flex items-center gap-1 transition-colors {{ request()->routeIs('frontend.project.*') ? 'text-gold' : 'text-forest hover:text-gold' }}">
-                            Proyek
+                            <span x-text="navText.proyek[lang]"></span>
                             <svg class="w-3.5 h-3.5 transition-transform" :class="projectsOpen && 'rotate-180'"
                                 fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
@@ -51,24 +70,24 @@
                             class="absolute left-0 top-full w-64 pt-2">
                             <div class="bg-white border border-ink/10 rounded-md shadow-xl overflow-hidden">
                                 <a href="{{ route('frontend.project.residensial') }}"
-                                    class="block px-5 py-3 text-sm transition-colors {{ request()->routeIs('frontend.project.residensial') ? 'text-gold bg-cream' : 'text-forest hover:bg-cream hover:text-gold' }}">
-                                    Residensial
+                                    class="block px-5 py-3 text-sm transition-colors {{ request()->routeIs('frontend.project.residensial') ? 'text-gold bg-cream' : 'text-forest hover:bg-cream hover:text-gold' }}"
+                                    x-text="navText.residensial[lang]">
                                 </a>
                                 <a href="{{ route('frontend.project.commercial') }}"
-                                    class="block px-5 py-3 text-sm transition-colors {{ request()->routeIs('frontend.project.commercial') ? 'text-gold bg-cream' : 'text-forest hover:bg-cream hover:text-gold' }}">
-                                    Komersial
+                                    class="block px-5 py-3 text-sm transition-colors {{ request()->routeIs('frontend.project.commercial') ? 'text-gold bg-cream' : 'text-forest hover:bg-cream hover:text-gold' }}"
+                                    x-text="navText.komersial[lang]">
                                 </a>
                                 <a href="{{ route('frontend.project.hotel') }}"
-                                    class="block px-5 py-3 text-sm transition-colors {{ request()->routeIs('frontend.project.hotel') ? 'text-gold bg-cream' : 'text-forest hover:bg-cream hover:text-gold' }}">
-                                    Hotel & Resort
+                                    class="block px-5 py-3 text-sm transition-colors {{ request()->routeIs('frontend.project.hotel') ? 'text-gold bg-cream' : 'text-forest hover:bg-cream hover:text-gold' }}"
+                                    x-text="navText.hotelResort[lang]">
                                 </a>
                             </div>
                         </div>
                     </div>
 
                     <a href="{{ route('frontend.allBerita') }}"
-                        class="relative pb-1 transition-colors {{ request()->is('berita*') ? 'text-gold' : 'text-forest hover:text-gold' }}">
-                        Berita & Acara
+                        class="relative pb-1 transition-colors {{ request()->is('berita*') ? 'text-gold' : 'text-forest hover:text-gold' }}"
+                        x-text="navText.beritaAcara[lang]">
                         @if (request()->is('berita*'))
                             <span class="absolute left-0 -bottom-1 w-full h-px bg-gold"></span>
                         @endif
@@ -79,11 +98,11 @@
                 <div class="flex items-center gap-5">
 
                     <a href="{{ route('frontend.contact') }}"
-                        class="inline-flex items-center px-5 py-2.5 border border-forest text-white text-sm tracking-wide rounded-lg bg-forest transition-colors">
-                        Hubungi Kami
+                        class="inline-flex items-center px-5 py-2.5 border border-forest text-white text-sm tracking-wide rounded-lg bg-forest transition-colors"
+                        translate="no" x-text="navText.hubungiKami[lang]">
                     </a>
 
-                    <div class="relative" @mouseenter="langOpen = true" @mouseleave="langOpen = false">
+                    <div class="relative" @mouseenter="langOpen = true" @mouseleave="langOpen = false" translate="no">
                         <button
                             class="flex items-center gap-1 text-xs text-ink-soft hover:text-gold transition-colors font-body">
                             <span x-text="lang"></span>
@@ -98,11 +117,11 @@
                             x-transition:enter-end="opacity-100 translate-y-0" x-cloak
                             class="absolute right-0 top-full w-24 pt-2">
                             <div class="bg-white border border-ink/10 rounded-md shadow-xl overflow-hidden">
-                                <button @click="lang = 'ID'"
+                                <button @click="lang = 'ID'; setGoogleLang('id')"
                                     class="block w-full text-left px-4 py-2.5 text-xs text-forest hover:bg-cream hover:text-gold transition-colors">
                                     Indonesia
                                 </button>
-                                <button @click="lang = 'EN'"
+                                <button @click="lang = 'EN'; setGoogleLang('en')"
                                     class="block w-full text-left px-4 py-2.5 text-xs text-forest hover:bg-cream hover:text-gold transition-colors">
                                     English
                                 </button>
@@ -128,21 +147,20 @@
     <div x-show="mobileOpen" x-transition:enter="transition ease-out duration-200"
         x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-cloak
         class="lg:hidden bg-white border-t border-ink/10">
-        <nav class="flex flex-col px-6 py-4 font-body text-sm">
+        <nav class="flex flex-col px-6 py-4 font-body text-sm" translate="no">
             <a href="{{ url('/') }}"
-                class="py-3 border-b border-ink/10 {{ request()->is('/') ? 'text-gold font-medium' : 'text-forest' }}">
-                Beranda
+                class="py-3 border-b border-ink/10 {{ request()->is('/') ? 'text-gold font-medium' : 'text-forest' }}"
+                x-text="navText.beranda[lang]">
             </a>
             <a href="{{ route('frontend.about') }}"
-                class="py-3 border-b border-ink/10 {{ request()->routeIs('frontend.about') ? 'text-gold font-medium' : 'text-forest' }}">
-                Tentang Kami
+                class="py-3 border-b border-ink/10 {{ request()->routeIs('frontend.about') ? 'text-gold font-medium' : 'text-forest' }}"
+                x-text="navText.tentang[lang]">
             </a>
-
 
             <div class="border-b border-ink/10">
                 <button @click="mobileProjectsOpen = !mobileProjectsOpen"
                     class="w-full flex items-center justify-between py-3 {{ request()->routeIs('frontend.project.*') ? 'text-gold font-medium' : 'text-forest' }}">
-                    Proyek
+                    <span x-text="navText.proyek[lang]"></span>
                     <svg class="w-4 h-4 transition-transform" :class="mobileProjectsOpen && 'rotate-180'"
                         fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
@@ -150,41 +168,42 @@
                 </button>
                 <div x-show="mobileProjectsOpen" x-cloak class="pb-3 pl-4 flex flex-col gap-1">
                     <a href="{{ route('frontend.project.residensial') }}"
-                        class="py-2 text-sm {{ request()->routeIs('frontend.project.residensial') ? 'text-gold font-medium' : 'text-forest/80' }}">
-                        Residensial
+                        class="py-2 text-sm {{ request()->routeIs('frontend.project.residensial') ? 'text-gold font-medium' : 'text-forest/80' }}"
+                        x-text="navText.residensial[lang]">
                     </a>
                     <a href="{{ route('frontend.project.commercial') }}"
-                        class="py-2 text-sm {{ request()->routeIs('frontend.project.commercial') ? 'text-gold font-medium' : 'text-forest/80' }}">
-                        Komersial
+                        class="py-2 text-sm {{ request()->routeIs('frontend.project.commercial') ? 'text-gold font-medium' : 'text-forest/80' }}"
+                        x-text="navText.komersial[lang]">
                     </a>
                     <a href="{{ route('frontend.project.hotel') }}"
-                        class="py-2 text-sm {{ request()->routeIs('frontend.project.hotel') ? 'text-gold font-medium' : 'text-forest/80' }}">
-                        Hotel & Resort
+                        class="py-2 text-sm {{ request()->routeIs('frontend.project.hotel') ? 'text-gold font-medium' : 'text-forest/80' }}"
+                        x-text="navText.hotelResort[lang]">
                     </a>
                 </div>
             </div>
 
             <a href="{{ route('frontend.allBerita') }}"
-                class="py-3 border-b border-ink/10 {{ request()->is('berita*') ? 'text-gold font-medium' : 'text-forest' }}">
-                Berita & Acara
+                class="py-3 border-b border-ink/10 {{ request()->is('berita*') ? 'text-gold font-medium' : 'text-forest' }}"
+                x-text="navText.beritaAcara[lang]">
             </a>
 
             <div class="flex items-center gap-3 py-4">
-                <span class="text-xs uppercase tracking-[0.15em] text-ink-soft">Bahasa:</span>
-                <button @click="lang = 'ID'" class="text-sm"
+                <span class="text-xs uppercase tracking-[0.15em] text-ink-soft"
+                    x-text="navText.bahasaLabel[lang]"></span>
+                <button @click="lang = 'ID'; setGoogleLang('id')" class="text-sm"
                     :class="lang === 'ID' ? 'text-gold font-medium' : 'text-forest/70'">
                     Indonesia
                 </button>
                 <span class="text-ink-soft/40">/</span>
-                <button @click="lang = 'EN'" class="text-sm"
+                <button @click="lang = 'EN'; setGoogleLang('en')" class="text-sm"
                     :class="lang === 'EN' ? 'text-gold font-medium' : 'text-forest/70'">
                     English
                 </button>
             </div>
 
             <a href="{{ route('frontend.contact') }}"
-                class="mt-2 inline-flex justify-center items-center px-5 py-3 border border-forest text-forest tracking-wide">
-                Hubungi Kami
+                class="mt-2 inline-flex justify-center items-center px-5 py-3 border border-forest text-forest tracking-wide"
+                x-text="navText.hubungiKami[lang]">
             </a>
         </nav>
     </div>

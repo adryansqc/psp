@@ -10,14 +10,17 @@
     @endphp
 
     <section class="py-24 bg-forest text-stone">
-        <div class="max-w-7xl mx-auto px-6 lg:px-10 text-center" data-aos="fade-up">
-            <p class="text-xs uppercase tracking-[0.25em] text-gold mb-3">Informasi Terbaru</p>
-            <h1 class="font-display text-4xl sm:text-5xl">
-                Berita &amp; Acara
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 text-center" data-aos="fade-up" x-data="{ lang: localStorage.getItem('preferred_lang') === 'en' ? 'EN' : 'ID' }">
+            <p class="text-xs uppercase tracking-[0.25em] text-gold mb-3" translate="no"
+                x-text="lang === 'EN' ? 'Latest Updates' : 'Informasi Terbaru'">
+            </p>
+            <h1 class="font-display text-4xl sm:text-5xl" translate="no"
+                x-text="lang === 'EN' ? 'News & Events' : 'Berita & Acara'">
             </h1>
-            <p class="mt-5 text-stone/70 max-w-xl mx-auto leading-relaxed">
-                Ikuti perkembangan terbaru dan acara yang diselenggarakan oleh
-                PT. Putra Sentosa Prakarsa.
+            <p class="mt-5 text-stone/70 max-w-xl mx-auto leading-relaxed" translate="no"
+                x-text="lang === 'EN'
+                ? 'Follow the latest updates and events held by PT. Putra Sentosa Prakarsa.'
+                : 'Ikuti perkembangan terbaru dan acara yang diselenggarakan oleh PT. Putra Sentosa Prakarsa.'">
             </p>
         </div>
     </section>

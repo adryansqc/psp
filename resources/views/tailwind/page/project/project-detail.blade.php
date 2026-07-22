@@ -33,7 +33,7 @@
         </section>
     @endif
 
-    <section class="relative h-[85vh] min-h-[560px]">
+    <section class="relative aspect-video md:h-[85vh] md:min-h-[560px] md:aspect-auto">
         <img src="{{ $project->cover ? \Storage::url($project->cover) : 'https://picsum.photos/seed/' . $project->uuid . '/1600/900' }}"
             alt="{{ $project->nama_projek }}" class="w-full h-full object-cover">
         <div class="absolute inset-0"></div>
@@ -114,17 +114,19 @@
 
                 <div class="relative">
                     <button @click="scroll(-1)" :disabled="atStart"
-                        class="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 z-10 w-11 h-11 items-center justify-center rounded-full bg-forest text-white shadow-md transition-colors hover:bg-forest-light disabled:opacity-30 disabled:pointer-events-none"
-                        aria-label="Video sebelumnya">
-                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        class="flex absolute -left-3 sm:left-0 top-28 sm:top-1/2 -translate-y-1/2 sm:-translate-x-14 z-10 w-9 h-9 sm:w-11 sm:h-11 items-center justify-center rounded-full bg-forest text-white shadow-md transition-colors hover:bg-forest-light disabled:opacity-30 disabled:pointer-events-none"
+                        aria-label="Proyek sebelumnya">
+                        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>
 
                     <button @click="scroll(1)"
-                        class="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 z-10 w-11 h-11 items-center justify-center rounded-full bg-forest text-white shadow-md transition-colors hover:bg-forest-light"
-                        aria-label="Video berikutnya">
-                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        class="flex absolute -right-3 sm:right-0 top-28 sm:top-1/2 -translate-y-1/2 sm:translate-x-14 z-10 w-9 h-9 sm:w-11 sm:h-11 items-center justify-center rounded-full bg-forest text-white shadow-md transition-colors hover:bg-forest-light"
+                        aria-label="Proyek berikutnya">
+                        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
@@ -181,17 +183,19 @@
 
                 <div class="relative">
                     <button @click="scroll(-1)" :disabled="atStart"
-                        class="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 z-10 w-11 h-11 items-center justify-center rounded-full bg-forest text-white shadow-md transition-colors hover:bg-forest-light disabled:opacity-30 disabled:pointer-events-none"
-                        aria-label="Fasilitas sebelumnya">
-                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        class="flex absolute -left-3 sm:left-0 top-36 sm:top-1/2 -translate-y-1/2 sm:-translate-x-14 z-10 w-9 h-9 sm:w-11 sm:h-11 items-center justify-center rounded-full bg-forest text-white shadow-md transition-colors hover:bg-forest-light disabled:opacity-30 disabled:pointer-events-none"
+                        aria-label="Proyek sebelumnya">
+                        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>
 
                     <button @click="scroll(1)"
-                        class="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 z-10 w-11 h-11 items-center justify-center rounded-full bg-forest text-white shadow-md transition-colors hover:bg-forest-light"
-                        aria-label="Fasilitas berikutnya">
-                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        class="flex absolute -right-3 sm:right-0 top-36 sm:top-1/2 -translate-y-1/2 sm:translate-x-14 z-10 w-9 h-9 sm:w-11 sm:h-11 items-center justify-center rounded-full bg-forest text-white shadow-md transition-colors hover:bg-forest-light"
+                        aria-label="Proyek berikutnya">
+                        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
@@ -200,7 +204,7 @@
                         @mouseleave="startAutoplay()"
                         class="flex gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                         @foreach ($project->fasilitas as $item)
-                            <div class="shrink-0 w-[80%] sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] snap-start"
+                            <div class="group block shrink-0 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] snap-start"
                                 data-aos="fade-up">
                                 <div class="rounded-3xl overflow-hidden aspect-[4/3] bg-cream">
                                     <img src="{{ $item->gambar ? \Storage::url($item->gambar) : 'https://picsum.photos/seed/' . $item->uuid . '/600/450' }}"

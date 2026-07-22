@@ -43,17 +43,19 @@
 
                 <div class="relative">
                     <button @click="scroll(-1)" :disabled="atStart"
-                        class="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 z-10 w-11 h-11 items-center justify-center rounded-full bg-forest text-white shadow-md transition-colors hover:bg-forest-light disabled:opacity-30 disabled:pointer-events-none"
+                        class="flex absolute -left-3 sm:left-0 top-64 sm:top-1/2 -translate-y-1/2 sm:-translate-x-14 z-10 w-9 h-9 sm:w-11 sm:h-11 items-center justify-center rounded-full bg-forest text-white shadow-md transition-colors hover:bg-forest-light disabled:opacity-30 disabled:pointer-events-none"
                         aria-label="Proyek sebelumnya">
-                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>
 
                     <button @click="scroll(1)"
-                        class="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 z-10 w-11 h-11 items-center justify-center rounded-full bg-forest text-white shadow-md transition-colors hover:bg-forest-light"
+                        class="flex absolute -right-3 sm:right-0 top-64 sm:top-1/2 -translate-y-1/2 sm:translate-x-14 z-10 w-9 h-9 sm:w-11 sm:h-11 items-center justify-center rounded-full bg-forest text-white shadow-md transition-colors hover:bg-forest-light"
                         aria-label="Proyek berikutnya">
-                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
@@ -62,7 +64,7 @@
                         class="flex gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                         @foreach ($projects as $project)
                             <a href="{{ route('frontend.project', $project->uuid) }}"
-                                class="shrink-0 w-[80%] sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] snap-start
+                                class="group block shrink-0 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] snap-start
                                        bg-cream rounded-3xl overflow-hidden group"
                                 data-aos="fade-up">
                                 <div class="h-64 overflow-hidden">

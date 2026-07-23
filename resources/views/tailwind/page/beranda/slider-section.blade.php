@@ -1,35 +1,25 @@
 @if ($sliders->isNotEmpty())
     <section
-        class="relative aspect-video sm:aspect-auto sm:h-[90vh] sm:min-h-[560px] flex items-center overflow-hidden bg-white"
-        x-data='{ slides: @json($sliders), active: 0 }' x-init="if (slides && slides.length) setInterval(() => active = (active + 1) % slides.length, 6000)">
+        class="relative aspect-video sm:aspect-auto sm:h-[90vh] sm:min-h-[560px] flex items-center overflow-hidden bg-forest"
+        x-data='{ slides: @json($sliders), active: 0 }'
+        x-init="if (slides && slides.length) setInterval(() => active = (active + 1) % slides.length, 6000)">
         <template x-for="(slide, index) in slides" :key="'slide-' + index">
-            <div class="absolute inset-0"
+            <div class="absolute inset-0 bg-forest"
                 :class="active === index ?
                     'transition-[clip-path,opacity] duration-[1000ms] ease-out opacity-100 [clip-path:inset(0%)]' :
                     'opacity-0 [clip-path:inset(40%)] pointer-events-none'">
                 <img :src="'/storage/' + slide.gambar" :alt="slide.second_title"
-                    class="w-full h-full object-cover object-center">
+                    class="w-full h-full object-contain sm:object-cover object-center">
                 <div class="absolute inset-0"></div>
             </div>
         </template>
 
-        <div class="hidden sm:block relative max-w-7xl mx-auto px-2 lg:px-10 text-stone z-10">
-            <div class="relative min-h-[60px] sm:min-h-[170px] lg:min-h-[190px]">
-                <template x-for="(slide, index) in slides" :key="'text-' + index">
-                    <div class="absolute inset-0 transition-opacity duration-700 ease-in-out"
-                        :class="active === index ? 'opacity-100' : 'opacity-0 pointer-events-none'">
-                        <p class="text-xs uppercase tracking-[0.25em] text-gold mb-4" x-text="slide.second_title"></p>
-                        <h1 class="font-display text-xl sm:text-4xl lg:text-6xl leading-tight max-w-2xl"
-                            style="white-space: pre-line" x-text="slide.title"></h1>
-                    </div>
-                </template>
-            </div>
-            <p class="mt-6 text-stone/80 max-w-lg leading-relaxed">
-                Membangun kawasan hunian dan komersial di Jambi dengan perencanaan matang
-                dan kualitas yang bisa dipercaya.
+        <div class="hidden sm:block relative max-w-7xl px-2 lg:px-10 text-stone z-10" data-aos="fade-up" x-data="{ lang: localStorage.getItem('preferred_lang') === 'en' ? 'EN' : 'ID' }">
+            <p class="font-display text-4xl lg:text-6xl leading-tight max-w-2xl"translate="no"
+            x-text="lang === 'EN' ? 'Find a property you’ll love' : 'Temukan properti yang anda cintai'">
             </p>
             <a href="#proyek"
-                class="mt-8 inline-flex items-center px-7 py-3 bg-gold text-forest rounded-lg text-sm tracking-wide hover:bg-gold-light transition-colors">
+                class="mt-4 inline-flex items-center px-7 py-3 bg-gold text-forest rounded-lg text-sm tracking-wide hover:bg-gold-light transition-colors">
                 Pelajari Lebih Lanjut
             </a>
         </div>
@@ -47,7 +37,7 @@
         class="relative aspect-video sm:aspect-auto sm:h-[90vh] sm:min-h-[560px] flex items-center overflow-hidden bg-forest">
         <div class="absolute inset-0">
             <img src="https://picsum.photos/seed/psp-fallback/1600/1000" alt="PT. Putra Sentosa Prakarsa"
-                class="w-full h-full object-cover object-center opacity-80">
+                class="w-full h-full object-contain sm:object-cover object-center opacity-80">
         </div>
         <div class="absolute inset-0 bg-forest/60"></div>
 
@@ -69,3 +59,13 @@
         </div>
     </section>
 @endif
+
+<div class="sm:hidden bg-white text-gold px-6 py-8 text-left" data-aos="fade-up" x-data="{ lang: localStorage.getItem('preferred_lang') === 'en' ? 'EN' : 'ID' }">
+    <p class="text-forest leading-relaxed text-3xl font-bold font-display" translate="no"
+    x-text="lang === 'EN' ? 'Find a property you’ll love' : 'Temukan properti yang anda cintai'">
+    </p>
+    <a href="#proyek"
+        class="mt-5 inline-flex items-center px-7 py-3 bg-gold text-forest rounded-lg text-sm tracking-wide hover:bg-gold-light transition-colors">
+        Pelajari Lebih Lanjut
+    </a>
+</div>

@@ -25,7 +25,8 @@
                 class="flex items-center gap-2 shrink-0 border border-forest/15 rounded-full pl-2 pr-4 py-1.5">
                 <img src="{{ asset('dummypsp') }}/assets/images/Logo_psp.png" alt="Logo PSP"
                     class="h-8 w-8 object-contain">
-                <span class="font-display text-2xl tracking-wide text-forest" translate="no">PSP</span>
+                <img src="{{ asset('dummypsp') }}/assets/images/psp_tanpa_rumbai.png" alt="Logo PSP"
+                    class="h-8 w-auto object-contain">
                 <span class="hidden sm:inline text-[11px] uppercase tracking-[0.2em] text-forest-light self-end mb-1"
                     translate="no">
                     Putra Sentosa Prakarsa
@@ -36,7 +37,7 @@
 
                 <nav class="flex items-center gap-10 font-body text-sm" translate="no">
                     <a href="{{ url('/') }}"
-                        class="relative pb-1 transition-colors {{ request()->is('/') ? 'text-gold' : 'text-forest hover:text-gold' }}"
+                        class="relative pb-1 font-semibold transition-colors {{ request()->is('/') ? 'text-gold' : 'text-forest hover:text-gold' }}"
                         x-text="navText.beranda[lang]">
                         @if (request()->is('/'))
                             <span class="absolute left-0 -bottom-1 w-full h-px bg-gold"></span>
@@ -44,7 +45,7 @@
                     </a>
 
                     <a href="{{ route('frontend.about') }}"
-                        class="relative pb-1 transition-colors {{ request()->routeIs('frontend.about') ? 'text-gold' : 'text-forest hover:text-gold' }}"
+                        class="relative pb-1 font-semibold transition-colors {{ request()->routeIs('frontend.about') ? 'text-gold' : 'text-forest hover:text-gold' }}"
                         x-text="navText.tentang[lang]">
                         @if (request()->routeIs('frontend.about'))
                             <span class="absolute left-0 -bottom-1 w-full h-px bg-gold"></span>
@@ -53,7 +54,7 @@
 
                     <div class="relative" @mouseenter="projectsOpen = true" @mouseleave="projectsOpen = false">
                         <button
-                            class="relative pb-1 flex items-center gap-1 transition-colors {{ request()->routeIs('frontend.project.*') ? 'text-gold' : 'text-forest hover:text-gold' }}">
+                            class="relative pb-1 flex items-center gap-1 font-semibold transition-colors {{ request()->routeIs('frontend.project.*') ? 'text-gold' : 'text-forest hover:text-gold' }}">
                             <span x-text="navText.proyek[lang]"></span>
                             <svg class="w-3.5 h-3.5 transition-transform" :class="projectsOpen && 'rotate-180'"
                                 fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -86,7 +87,7 @@
                     </div>
 
                     <a href="{{ route('frontend.allBerita') }}"
-                        class="relative pb-1 transition-colors {{ request()->is('berita*') ? 'text-gold' : 'text-forest hover:text-gold' }}"
+                        class="relative pb-1 font-semibold transition-colors {{ request()->is('berita*') ? 'text-gold' : 'text-forest hover:text-gold' }}"
                         x-text="navText.beritaAcara[lang]">
                         @if (request()->is('berita*'))
                             <span class="absolute left-0 -bottom-1 w-full h-px bg-gold"></span>
@@ -149,17 +150,17 @@
         class="lg:hidden bg-white border-t border-ink/10">
         <nav class="flex flex-col px-6 py-4 font-body text-sm" translate="no">
             <a href="{{ url('/') }}"
-                class="py-3 border-b border-ink/10 {{ request()->is('/') ? 'text-gold font-medium' : 'text-forest' }}"
+                class="py-3 border-b border-ink/10 font-semibold {{ request()->is('/') ? 'text-gold' : 'text-forest' }}"
                 x-text="navText.beranda[lang]">
             </a>
             <a href="{{ route('frontend.about') }}"
-                class="py-3 border-b border-ink/10 {{ request()->routeIs('frontend.about') ? 'text-gold font-medium' : 'text-forest' }}"
+                class="py-3 border-b border-ink/10 font-semibold {{ request()->routeIs('frontend.about') ? 'text-gold' : 'text-forest' }}"
                 x-text="navText.tentang[lang]">
             </a>
 
             <div class="border-b border-ink/10">
                 <button @click="mobileProjectsOpen = !mobileProjectsOpen"
-                    class="w-full flex items-center justify-between py-3 {{ request()->routeIs('frontend.project.*') ? 'text-gold font-medium' : 'text-forest' }}">
+                    class="w-full flex items-center justify-between py-3 font-semibold {{ request()->routeIs('frontend.project.*') ? 'text-gold' : 'text-forest' }}">
                     <span x-text="navText.proyek[lang]"></span>
                     <svg class="w-4 h-4 transition-transform" :class="mobileProjectsOpen && 'rotate-180'"
                         fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -183,7 +184,7 @@
             </div>
 
             <a href="{{ route('frontend.allBerita') }}"
-                class="py-3 border-b border-ink/10 {{ request()->is('berita*') ? 'text-gold font-medium' : 'text-forest' }}"
+                class="py-3 border-b border-ink/10 font-semibold {{ request()->is('berita*') ? 'text-gold' : 'text-forest' }}"
                 x-text="navText.beritaAcara[lang]">
             </a>
 
@@ -202,7 +203,7 @@
             </div>
 
             <a href="{{ route('frontend.contact') }}"
-                class="mt-2 inline-flex justify-center items-center px-5 py-3 border border-forest text-forest tracking-wide"
+                class="mt-2 inline-flex justify-center items-center px-5 py-3 border border-forest text-forest tracking-wide font-semibold"
                 x-text="navText.hubungiKami[lang]">
             </a>
         </nav>

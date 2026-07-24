@@ -91,22 +91,12 @@
                     </a>
                 @endif
 
-                @if (!empty($settingItems['x']->value ?? null))
-                    <a href="{{ $settingItems['x']->value }}" target="_blank" rel="noopener" aria-label="X"
-                        class="text-stone/60 hover:text-gold transition-colors">
+                @if (!empty($settingItems['tiktok']->value ?? null))
+                    <a href="{{ $settingItems['tiktok']->value }}" target="_blank" rel="noopener"
+                        aria-label="TikTok" class="text-stone/60 hover:text-gold transition-colors">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path
-                                d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.6L4.5 22H1.4l8.1-9.3L1 2h7.1l4.9 6.1L18.9 2Zm-1.2 18h1.9L7.4 3.9H5.4L17.7 20Z" />
-                        </svg>
-                    </a>
-                @endif
-
-                @if (!empty($settingItems['linkedin']->value ?? null))
-                    <a href="{{ $settingItems['linkedin']->value }}" target="_blank" rel="noopener"
-                        aria-label="LinkedIn" class="text-stone/60 hover:text-gold transition-colors">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.34-.02-3.06-1.86-3.06-1.87 0-2.16 1.46-2.16 2.96V21h-4V9Z" />
+                                d="M16.6 5.82c-.9-.79-1.47-1.9-1.6-3.14V2h-3.4v13.42a2.6 2.6 0 1 1-2.14-2.56v-3.44a5.99 5.99 0 0 0-1.06-.09A6 6 0 1 0 14.4 15V9.14a8.16 8.16 0 0 0 4.6 1.4V7.16a4.85 4.85 0 0 1-2.4-1.34Z" />
                         </svg>
                     </a>
                 @endif

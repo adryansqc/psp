@@ -79,7 +79,7 @@ class SettingSeeder extends Seeder
                 'name'        => 'Email',
                 'key'         => 'email',
                 'type'        => 'email',
-                'value'       => 'marketing@pspjmb.com',
+                'value'       => 'pspgroupjambi@gmail.com',
                 'helper_text' => null,
             ],
             [
@@ -87,7 +87,7 @@ class SettingSeeder extends Seeder
                 'name'        => 'Phone Number',
                 'key'         => 'phone_number',
                 'type'        => 'number',
-                'value'       => '0899999999999',
+                'value'       => '081285008501',
                 'helper_text' => null,
             ],
             [
@@ -103,7 +103,7 @@ class SettingSeeder extends Seeder
                 'name'        => 'Instagram',
                 'key'         => 'instagram',
                 'type'        => 'url',
-                'value'       => 'https://instagram.com',
+                'value'       => 'https://www.instagram.com/pspgroup_jambi?igsh=emNrNXpwbTg3Yjk4',
                 'helper_text' => null,
             ],
             [
@@ -119,15 +119,15 @@ class SettingSeeder extends Seeder
                 'name'        => 'Facebook',
                 'key'         => 'facebook',
                 'type'        => 'url',
-                'value'       => 'https://facebook.com',
+                'value'       => 'https://www.facebook.com/share/1BrpCYCU8s/?mibextid=wwXIfr',
                 'helper_text' => null,
             ],
             [
                 'setting_id'  => $settings['medsos']->id,
-                'name'        => 'Linkedin',
-                'key'         => 'linkedin',
+                'name'        => 'Tiktok',
+                'key'         => 'tiktok',
                 'type'        => 'url',
-                'value'       => 'https://linkedind.com',
+                'value'       => 'https://www.tiktok.com/@pspgroupjambi?_r=1&_t=ZS-98GcLocLnVM',
                 'helper_text' => null,
             ],
             [

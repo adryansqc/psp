@@ -25,6 +25,7 @@
         </div>
     </section>
 
+    {{-- ================= BERITA ================= --}}
     @if ($daftarBerita->isNotEmpty())
         <section class="py-24 bg-white" x-data="{
             atStart: true,
@@ -39,7 +40,7 @@
                 const card = el.querySelector(':scope > *');
                 const gap = 32;
                 const amount = card ? card.offsetWidth + gap : el.clientWidth;
-        
+
                 if (direction === 1 && this.atEnd) {
                     el.scrollTo({ left: 0, behavior: 'smooth' });
                 } else {
@@ -101,9 +102,28 @@
                 </div>
             </div>
         </section>
+    @else
+        <section class="py-24 bg-white" x-data="{ lang: localStorage.getItem('preferred_lang') === 'en' ? 'EN' : 'ID' }">
+            <div class="max-w-xl mx-auto px-6 lg:px-10 text-center" data-aos="fade-up">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-cream mb-6">
+                    <svg class="w-8 h-8 text-ink-soft" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                    </svg>
+                </div>
+                <h2 class="font-display text-2xl text-ink" translate="no"
+                    x-text="lang === 'EN' ? 'No news yet' : 'Belum Ada Berita'">
+                </h2>
+                <p class="mt-3 text-ink-soft leading-relaxed" translate="no"
+                    x-text="lang === 'EN'
+                        ? 'Please check back later for the latest news from PT. Putra Sentosa Prakarsa.'
+                        : 'Silakan cek kembali nanti untuk berita terbaru dari PT. Putra Sentosa Prakarsa.'">
+                </p>
+            </div>
+        </section>
     @endif
 
-
+    {{-- ================= ACARA ================= --}}
     @if ($daftarAcara->isNotEmpty())
         <section class="py-24 bg-cream" x-data="{
             atStart: true,
@@ -118,7 +138,7 @@
                 const card = el.querySelector(':scope > *');
                 const gap = 32;
                 const amount = card ? card.offsetWidth + gap : el.clientWidth;
-        
+
                 if (direction === 1 && this.atEnd) {
                     el.scrollTo({ left: 0, behavior: 'smooth' });
                 } else {
@@ -178,6 +198,25 @@
                         @endforeach
                     </div>
                 </div>
+            </div>
+        </section>
+    @else
+        <section class="py-24 bg-cream" x-data="{ lang: localStorage.getItem('preferred_lang') === 'en' ? 'EN' : 'ID' }">
+            <div class="max-w-xl mx-auto px-6 lg:px-10 text-center" data-aos="fade-up">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white mb-6">
+                    <svg class="w-8 h-8 text-ink-soft" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                    </svg>
+                </div>
+                <h2 class="font-display text-2xl text-ink" translate="no"
+                    x-text="lang === 'EN' ? 'No events yet' : 'Belum Ada Acara'">
+                </h2>
+                <p class="mt-3 text-ink-soft leading-relaxed" translate="no"
+                    x-text="lang === 'EN'
+                        ? 'Please check back later for upcoming events from PT. Putra Sentosa Prakarsa.'
+                        : 'Silakan cek kembali nanti untuk acara terbaru dari PT. Putra Sentosa Prakarsa.'">
+                </p>
             </div>
         </section>
     @endif

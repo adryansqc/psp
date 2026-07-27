@@ -109,12 +109,12 @@ class GalleriesRelationManager extends RelationManager
             ])
             ->headerActions([
                 CreateAction::make(),
-                AssociateAction::make(),
+                // AssociateAction::make(),
             ])
             ->recordActions([
                 EditAction::make(),
                 DissociateAction::make(),
-                DeleteAction::make(),
+                // DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

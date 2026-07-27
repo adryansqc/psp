@@ -21,12 +21,12 @@
     @endphp
 
     @if ($project->logos->isNotEmpty())
-        <section class="bg-cream py-8 overflow-hidden">
-            <div class="flex gap-16 animate-marquee whitespace-nowrap">
+        <section class="bg-cream py-6 sm:py-8 overflow-hidden">
+            <div class="flex gap-8 sm:gap-16 animate-marquee whitespace-nowrap">
                 @foreach ($project->logos->concat($project->logos) as $logo)
-                    <div class="shrink-0 flex items-center justify-center h-12">
+                    <div class="shrink-0 flex items-center justify-center h-8 sm:h-12">
                         <img src="{{ $logo->logo ? \Storage::url($logo->logo) : 'https://picsum.photos/seed/' . $logo->uuid . '/160/60' }}"
-                            alt="{{ $logo->nama }}" class="h-20 w-auto object-contain opacity-80 grayscale">
+                            alt="{{ $logo->nama }}" class="h-6 sm:h-10 w-auto object-contain opacity-80">
                     </div>
                 @endforeach
             </div>

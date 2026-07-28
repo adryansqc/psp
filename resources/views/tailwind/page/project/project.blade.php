@@ -61,7 +61,7 @@
                     </button>
 
                     <div x-ref="track" @scroll.debounce.100ms="updateEdges()"
-                        class="flex gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                        class="flex gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-none [&::-webkit-scrollbar]:hidden">
                         @foreach ($projects as $project)
                             <a href="{{ route('frontend.project', $project->uuid) }}"
                                 class="group block shrink-0 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.334rem)] snap-start

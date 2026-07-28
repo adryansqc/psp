@@ -44,7 +44,7 @@
                     </ul>
                 </nav>
 
-                <div class="lg:col-span-8 relative mt-10 lg:mt-0 min-h-[240px]">
+                <div class="lg:col-span-8 relative mt-10 lg:mt-0 min-h-60">
                     <template x-for="(panel, key) in panels" :key="'panel-' + key">
                         <div x-show="active === key" x-transition:enter="transition ease-out duration-500"
                             x-transition:enter-start="opacity-0 translate-y-2"

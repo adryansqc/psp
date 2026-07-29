@@ -22,13 +22,13 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             SettingSeeder::class,
             RolePermissionSeeder::class,
-            ProjectSeeder::class,
+            // ProjectSeeder::class,
             FaqSeeder::class,
             AboutUsSeeder::class,
-            BeritaSeeder::class,
-            GalleriesProjectSeeder::class,
-            LogoSeeder::class,
-            FasilitasSeeder::class,
+            // BeritaSeeder::class,
+            // GalleriesProjectSeeder::class,
+            // LogoSeeder::class,
+            // FasilitasSeeder::class,
 
         ];
 

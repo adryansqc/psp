@@ -33,7 +33,7 @@
     @if (isset($settingItems['favicon']) &&
             $settingItems['favicon']->value &&
             \Storage::disk('public')->exists($settingItems['favicon']->value))
-        <link rel="shortcut icon" type="image/x-icon" href="{{ '/media/' . $settingItems['favicon']->value }}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ Storage::url($settingItems['favicon']->value) }}">
     @else
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('dummypsp') }}/assets/images/Logo_psp.png">
     @endif

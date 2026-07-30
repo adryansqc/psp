@@ -2,25 +2,44 @@
 <html lang="id">
 
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    {!! $settingItems['meta']->value ?? '' !!}
 
     <title>@yield('title') - Putra Sentosa Prakasa</title>
+
+    <meta name="description" content="PT. Putra Sentosa Prakarsa adalah pengembang properti terpercaya di Jambi, menghadirkan proyek residensial, kawasan komersial, hotel, dan resort berkualitas." />
+    <meta name="keywords" content="properti Jambi, developer properti, perumahan Jambi, kawasan komersial, hotel resort, Putra Sentosa Prakarsa" />
+    <meta name="author" content="PT. Putra Sentosa Prakarsa" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="{{ url()->current() }}" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:title" content="@yield('title') - Putra Sentosa Prakasa" />
+    <meta property="og:description" content="PT. Putra Sentosa Prakarsa adalah pengembang properti terpercaya di Jambi, menghadirkan proyek residensial, kawasan komersial, hotel, dan resort berkualitas." />
+    <meta property="og:image" content="{{ asset('dummypsp') }}/assets/images/Logo_psp.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="PT. Putra Sentosa Prakarsa" />
+    <meta property="og:locale" content="id_ID" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="@yield('title') - Putra Sentosa Prakasa" />
+    <meta name="twitter:description" content="PT. Putra Sentosa Prakarsa adalah pengembang properti terpercaya di Jambi, menghadirkan proyek residensial, kawasan komersial, hotel, dan resort berkualitas." />
+    <meta name="twitter:image" content="{{ asset('dummypsp') }}/assets/images/Logo_psp.png" />
+
+    <meta name="theme-color" content="#1a3c34" />
 
     @if (isset($settingItems['favicon']) &&
             $settingItems['favicon']->value &&
             \Storage::disk('public')->exists($settingItems['favicon']->value))
-        <link rel="shortcut icon" type="image/x-icon" href="{{ Storage::url($settingItems['favicon']->value) }}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ '/media/' . $settingItems['favicon']->value }}">
     @else
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('dummypsp') }}/assets/images/Logo_psp.png">
     @endif
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
     <link href="{{ asset('css/aos/aos.css') }}" rel="stylesheet">
-
     @stack('style')
 </head>
 

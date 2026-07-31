@@ -25,9 +25,7 @@
                 class="flex items-center gap-2 shrink-0 border border-forest/15 rounded-full pl-2 pr-4 py-1.5">
                 <img src="{{ asset('dummypsp') }}/assets/images/Logo_psp.png" alt="Logo PSP"
                     class="h-8 w-8 object-contain">
-                <img src="{{ asset('dummypsp') }}/assets/images/psp_tanpa_rumbai.png" alt="Logo PSP"
-                    class="h-8 w-auto object-contain">
-                <span class="hidden sm:inline text-[11px] uppercase tracking-[0.2em] text-forest-light self-end mb-1"
+                <span class="text-[11px] uppercase tracking-[0.2em] text-forest-light self-end mb-1"
                     translate="no">
                     Putra Sentosa Prakarsa
                 </span>

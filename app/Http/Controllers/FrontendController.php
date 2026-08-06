@@ -60,7 +60,7 @@ class FrontendController extends Controller
 
     public function projectResidensial()
     {
-        $projects = Project::residensial()->latest()->get();
+        $projects = Project::residensial()->Ordered()->get();
         $mapProjects = Project::residensial()->whereNotNull('lokasi')->get();
 
         return view('tailwind.page.project.project', [
@@ -73,7 +73,7 @@ class FrontendController extends Controller
 
     public function projectCommercial()
     {
-        $projects = Project::commercialArea()->latest()->get();
+        $projects = Project::commercialArea()->Ordered()->get();
         $mapProjects = Project::commercialArea()->whereNotNull('lokasi')->get();
 
         return view('tailwind.page.project.project', [
@@ -86,7 +86,7 @@ class FrontendController extends Controller
 
     public function projectHotelResort()
     {
-        $projects = Project::hotelAndArea()->latest()->get();
+        $projects = Project::hotelAndArea()->Ordered()->get();
         $mapProjects = Project::hotelAndArea()->whereNotNull('lokasi')->get();
 
         return view('tailwind.page.project.project', [

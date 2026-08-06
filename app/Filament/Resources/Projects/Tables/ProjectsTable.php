@@ -55,6 +55,9 @@ class ProjectsTable
                 TextColumn::make('informasi')
                     ->limit(50)
                     ->searchable(),
+                TextColumn::make('order')
+                    ->label('Urutan')
+                    ->sortable(),
                 ToggleColumn::make('pin')
                     ->label('Pin')
                     ->onColor('success')
@@ -88,6 +91,8 @@ class ProjectsTable
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->poll('5s')
+            ->defaultSort('order', 'asc')
+            ->reorderable('order')
             ->filters([
                 //
             ])

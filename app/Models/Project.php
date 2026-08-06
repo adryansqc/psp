@@ -19,7 +19,7 @@ class Project extends Model
         'nama_projek',
         'informasi',
         'kategori',
-        // 'fasilitas',
+        'order',
         'lokasi',
         'pin',
         'developer',
@@ -50,9 +50,9 @@ class Project extends Model
     }
 
     public function fasilitas()
-{
-    return $this->hasMany(Fasilitas::class)->orderBy('order', 'asc');
-}
+    {
+        return $this->hasMany(Fasilitas::class)->orderBy('order', 'asc');
+    }
     public function getMapLatitudeAttribute(): ?float
     {
         $coords = $this->extractMapCoordinates();
@@ -101,5 +101,10 @@ class Project extends Model
     public function scopeHotelAndArea(Builder $query): Builder
     {
         return $query->where('kategori', 'hotel_resort');
+    }
+
+    public function scopeOrdered(Builder $query): Builder
+    {
+        return $query->orderBy('order', 'asc');
     }
 }

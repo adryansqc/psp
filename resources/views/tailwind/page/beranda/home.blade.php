@@ -10,7 +10,7 @@
         <div class="max-w-5xl mx-auto px-0 sm:px-6 lg:px-10">
             <div class="mt-0 rounded-3xl aspect-video w-full overflow-hidden shadow-2xl" data-aos="fade-up"
                 data-aos-delay="100">
-                <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/3imCL4Bk83c"
+                <iframe class="w-full h-full" src="{{ $settingItems['youtube']->value ?? 'https://www.youtube-nocookie.com/embed/3imCL4Bk83c' }}"
                     title="Profil PT. Putra Sentosa Prakarsa" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

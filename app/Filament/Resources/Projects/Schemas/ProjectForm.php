@@ -54,6 +54,13 @@ class ProjectForm
                     ->helperText('isilah lokasi dengan embed dari google maps dan width nya diubah menjadi 100%')
                     ->required()
                     ->columnSpanFull(),
+                TextInput::make('order')
+                    ->label('Urutan')
+                    ->numeric()
+                    ->minValue(0)
+                    ->columnSpanFull()
+                    ->default(fn() => Project::max('order') + 1)
+                    ->required(),
                 Toggle::make('pin')
                     ->label('Pin Project')
                     ->helperText('Aktifkan untuk menandai project ini sebagai pin (Maksimal 5)')

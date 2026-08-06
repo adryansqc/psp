@@ -6,11 +6,16 @@
 
     @include('tailwind.page.beranda.slider-section')
 
+    @php
+        preg_match('/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/', $settingItems['youtube']->value ?? '', $match);
+        $youtubeId = $match[1] ?? null;
+    @endphp
+
     <section class="py-0 bg-white mt-0">
         <div class="max-w-5xl mx-auto px-0 sm:px-6 lg:px-10">
             <div class="mt-0 rounded-3xl aspect-video w-full overflow-hidden shadow-2xl" data-aos="fade-up"
                 data-aos-delay="100">
-                <iframe class="w-full h-full" src="{{ $settingItems['youtube']->value ?? 'https://www.youtube-nocookie.com/embed/3imCL4Bk83c' }}"
+                <iframe class="w-full h-full" src="{{ $youtubeId ? 'https://www.youtube-nocookie.com/embed/' . $youtubeId : ($settingItems['youtube']->value ?? '') }}"
                     title="Profil PT. Putra Sentosa Prakarsa" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
